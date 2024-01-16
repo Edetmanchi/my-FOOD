@@ -11,6 +11,11 @@ import Preview from './scr/onboarding-screen/Preview';
 import Home from './scr/pages/home/Home';
 import PrimaryBtn from './scr/components/PrimaryBtn';
 import LogIn from './scr/auth-screen/LogIn';
+import ForgotPassworrd from './scr/auth-screen/ForgotPassword'
+import Verification from './scr/auth-screen/Verification'
+import SignUp from './scr/auth-screen/SignUp'
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +48,10 @@ export default function(){
   return(
     <View>
       {/* <PrimaryBtn/> */}
-      <LogIn/>
+      {/* <ForgotPassworrd/> */}
+      {/* <LogIn/> */}
+      {/* <Verification/> */}
+      <SignUp/>
     </View>
   )
 }
