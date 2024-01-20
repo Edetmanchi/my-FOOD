@@ -6,7 +6,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
-
 import Preview from './scr/onboarding-screen/Preview';
 import Home from './scr/pages/home/Home';
 import PrimaryBtn from './scr/components/PrimaryBtn';
@@ -17,7 +16,7 @@ import SignUp from './scr/auth-screen/SignUp'
 
 
 
-const Stack = createNativeStackNavigator();
+// const Stack = createNativeStackNavigator();
 
 // export default function App() {
 //   const [isOnboard, setIsOnboard] = useState(false)
@@ -51,7 +50,8 @@ export default function(){
       {/* <ForgotPassworrd/> */}
       {/* <LogIn/> */}
       {/* <Verification/> */}
-      <SignUp/>
+      {/* <SignUp/> */}
+      <Home />
     </View>
   )
 }
