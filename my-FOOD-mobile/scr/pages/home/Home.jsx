@@ -1,6 +1,6 @@
 import *  as React from 'react';
 import { useState } from 'react';
-import { ScrollView, Text, View , FlatList, StyleSheet, Image, Pressable} from 'react-native';
+import { ScrollView, Text, View , FlatList, StyleSheet, Image, Pressable, Animated, TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SearchBar } from '@rneui/themed';
@@ -11,10 +11,14 @@ import Notification from './Notification';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+
+
+
 // const Tab = createBottomTabNavigator();
 const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
   const [search, setSearch] = useState("");
-  const [selectedEmployee, setSelectedEmployee] = useState([]);
+  const [seeAllCategory, setSeeAllCategory] = useState(false);
 
 
   const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705174513487/2429e79d-0446-47d8-8f68-453ce76daa40.png'
@@ -43,7 +47,7 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
   }
 
   // all categories date
-  const allCategories =[
+  const _allCategoriesData =[
     {
       id: '1',
       name: 'Pizza',
@@ -80,15 +84,18 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
     <Pressable
       style={[
         styles.scrollImgContainer,
-        selectedEmployee.some((f) => f.id === item.id) && styles.selectedItem,
+        // selectedEmployee.some((f) => f.id === item.id) && styles.selectedItem,
       ]}
-      onPress={() => togglePreview(item)}
+      // onPress={() => togglePreview(item)}
     >
       <Text>{item.icon}</Text>
       <Text style={styles.scrollImgText}>{item.name}</Text>
     </Pressable>
   );
   
+  const toggleSeeAllCategory = () => {
+    setSeeAllCategory(!seeAllCategory);
+  };
 
   return (
     <SafeAreaView>
@@ -103,21 +110,28 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
     </View>
     <ScrollView>
     {/* all categories */}
-      <View style={styles.scrollHeaderContainer}>
-        <Text style={styles.scrollHeaderText1}>
-          All Categories
-        </Text>
-        <Text style={styles.scrollHeaderText2}>See All</Text>
+      <View>
+        <View style={styles.scrollHeaderContainer}>
+          <Text style={styles.scrollHeaderText1}>
+            All Categories
+          </Text>
+          <TouchableOpacity onPress={toggleSeeAllCategory}>
+          <Text
+          style={styles.scrollHeaderText2}
+          >See All</Text>
+          </TouchableOpacity>
+        </View>
+        <AnimatedFlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal={!seeAllCategory}
+          data={_allCategoriesData}
+          // renderItem={({ item }) => <Item item={item} />}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          // style={[styles.flatList, { height: seeAllCategory? 'auto' : 50}]}
+        />
       </View>
-      <FlatList
-        showsHorizontalScrollIndicator={false}
-        horizontal={true}
-        data={allCategories}
-        // renderItem={({ item }) => <Item item={item} />}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      
-      />
+
 
     </ScrollView>
 

@@ -52,8 +52,8 @@ export default function(){
       {/* <LogIn/> */}
       {/* <Verification/> */}
       {/* <SignUp/> */}
-      {/* <Home /> */}
-      <Practive/>
+      <Home />
+      {/* <Practive/> */}
     </View>
   )
 }
