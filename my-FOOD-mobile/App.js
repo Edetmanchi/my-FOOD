@@ -13,6 +13,7 @@ import LogIn from './scr/auth-screen/LogIn';
 import ForgotPassworrd from './scr/auth-screen/ForgotPassword'
 import Verification from './scr/auth-screen/Verification'
 import SignUp from './scr/auth-screen/SignUp'
+import Practive from './scr/auth-screen/Practive';
 
 
 
@@ -51,7 +52,8 @@ export default function(){
       {/* <LogIn/> */}
       {/* <Verification/> */}
       {/* <SignUp/> */}
-      <Home />
+      {/* <Home /> */}
+      <Practive/>
     </View>
   )
 }
