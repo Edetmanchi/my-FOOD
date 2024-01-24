@@ -4,6 +4,7 @@ import { ScrollView, Text, View , FlatList, StyleSheet, Image, Pressable, Animat
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SearchBar } from '@rneui/themed';
+// import { _openResturantData, _categoriesFoodData, _allCategoriesData } from '../../components/FlatlistData';
 
 
 import Cart from './Cart';
@@ -11,19 +12,85 @@ import Notification from './Notification';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
+
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-
-
-
 // const Tab = createBottomTabNavigator();
 const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
   const [search, setSearch] = useState("");
-  const [seeAllCategory, setSeeAllCategory] = useState(false);
+  const {seeAllCategory, setSeeAllCategory} = useState(false);
+  
+const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705174513487/2429e79d-0446-47d8-8f68-453ce76daa40.png'
 
+  
+  // all categories date
+  const _allCategoriesData =[
+   {
+     id: '1',
+     name: 'Pizza',
+     image: <Image source={{uri: prevImage1}} style={styles.seeAllFlatlistImg} />,
+    //  image: {prevImage1} style={styles.seeAllFlatlistImg},
+   },
+   {
+     id: '2',
+     name: 'Burger',
+     image: <Image source={{uri: prevImage1}} style={styles.seeAllFlatlistImg}/>,
+   },
+   {
+     id: '3',
+     name: 'Shawarmer',
+     image: <Image source={{uri: prevImage1}}  style={styles.seeAllFlatlistImg}/>,
+   },
+   {
+     id: '4',
+     name: 'Rice',
+     image: <Image source={{uri: prevImage1}}  style={styles.seeAllFlatlistImg}/>,
+   },
+  //  {
+  //    id: '5',
+  //    name: 'Snacks',
+  //    image: <Image source={{uri: prevImage1}} />,
+  //  },
+  //  {
+  //    id: '6',
+  //    name: 'Wine',
+  //    image: <Image source={{uri: prevImage1}}  />,
+  //  }
+  ]
 
-  const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705174513487/2429e79d-0446-47d8-8f68-453ce76daa40.png'
+  // Available resturant suggestions data
+//   const _availableResturantData = [
+//     {
+//         id: "1",
+//         // icon:<Preview1/>,
+//         image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
+//         name: 'Chicken Republic',
+//         rating: '4.2',
+//         eta: '25min'
+//     },
+//     // {
+//     //     id: "2",
+//     //     icon: <Preview1/>,
+//     //     name: 'Killomanjaro',
+//     //     rating: '3.2',
+//     //     eta: '35min'
+//     // },
+//     // {
+//     //     id: "3",
+//     //     icon:<Preview1/>,
+//     //     name: 'Chop-sticks',
+//     //     rating: '4.1',
+//     //     eta: '39min'
+//     // },
+//     // {
+//     //     id: "4",
+//     //     icon: <Preview1/>,
+//     //     name: 'Coldstone',
+//     //     rating: '3.1',
+//     //     eta: '29min'
+//     // },
+// ]
 
-
+  // search functionality
   const updateSearch = (search) => {
     setSearch(search);
   };
@@ -46,56 +113,44 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
     return greeting;
   }
 
-  // all categories date
-  const _allCategoriesData =[
-    {
-      id: '1',
-      name: 'Pizza',
-      image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
-    },
-    {
-      id: '2',
-      name: 'Burger',
-      image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
-    },
-    {
-      id: '3',
-      name: 'Shawarmer',
-      image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
-    },
-    {
-      id: '4',
-      name: 'Rice',
-      image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
-    },
-    {
-      id: '5',
-      name: 'Snacks',
-      image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
-    },
-    {
-      id: '6',
-      name: 'Wine',
-      image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
-    }
-  ]
+
   // items to render or all categories flatlist
-  const renderItem = ({ item }) => (
+  const _seeAllCategories_renderItem = ({ item }) => (
     <Pressable
       style={[
         styles.scrollImgContainer,
-        // selectedEmployee.some((f) => f.id === item.id) && styles.selectedItem,
+        // styles.selectedItem,
       ]}
       // onPress={() => togglePreview(item)}
     >
-      <Text>{item.icon}</Text>
+      <Text style={styles.seeAllFlatlistImg}>{item.icon}</Text>
       <Text style={styles.scrollImgText}>{item.name}</Text>
     </Pressable>
   );
-  
+
   const toggleSeeAllCategory = () => {
     setSeeAllCategory(!seeAllCategory);
   };
+
+  // items to render for available resturant suggestions
+  // const _availableResturant_renderItem = ({item}) =>{
+  //   <View>
+  //     <Pressable
+  //       style={[
+  //         // styles.scrollImgContainer,
+  //         // styles.selectedItem,
+  //       ]}
+  //     >
+  //       {/* <Text>{item.icon}</Text> */}
+  //       <Text>{item.name}</Text>
+  //       <Text style={styles.scrollImgText}>{item.name}</Text>
+  //     </Pressable>
+  //     <View>
+  //       <TouchableOpacity>{item.rating}</TouchableOpacity>
+  //       <TouchableOpacity>{item.eta}</TouchableOpacity>
+  //     </View>
+  //   </View>
+  //   }
 
   return (
     <SafeAreaView>
@@ -125,14 +180,19 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
           showsHorizontalScrollIndicator={false}
           horizontal={!seeAllCategory}
           data={_allCategoriesData}
-          // renderItem={({ item }) => <Item item={item} />}
-          renderItem={renderItem}
+          renderItem={_seeAllCategories_renderItem}
           keyExtractor={(item) => item.id}
           // style={[styles.flatList, { height: seeAllCategory? 'auto' : 50}]}
         />
       </View>
-
-
+      <View>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          data={_availableResturantData}
+          renderItem={_availableResturant_renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
     </ScrollView>
 
     </SafeAreaView>
@@ -150,7 +210,7 @@ const styles = StyleSheet.create({
 
   },
   scrollImgContainer: {
-    // flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
     marginVertical: 7,
@@ -160,8 +220,15 @@ const styles = StyleSheet.create({
     borderColor: "#ddd",
     borderRadius: 8,
     borderWidth: 1,
+    // height: 60
   },
   selectedItem: {
     backgroundColor: "#add8e6", // Light blue background for selected items
   },
+  seeAllFlatlistImg:{
+    height: 40,
+    width: 50,
+    objectFit: 'contain',
+    // backgroundColor:'black'
+  }
 })
