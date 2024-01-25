@@ -34,12 +34,14 @@ export default function LogIn() {
     <SafeAreaView style={{backgroundColor: 'black'}}>
       <KeyboardAvoidingView>
         <View  style={styles.body}>
+          {/* page header */}
           <View  style={styles.container1}>
                 <View style={styles.view1}>
                     <Text style={styles.headerText1}>Log In</Text>
                     <Text style={styles.headerText2}>Please sign in to existing account</Text>
                 </View>
           </View>
+          {/* main container */}
           <View style={styles.container2}>
             <View style={styles.view2}> 
               <View>
@@ -131,10 +133,6 @@ export default function LogIn() {
   )
 }
 const styles = StyleSheet.create({
-
-  body:{
-    // backgroundColor: 'black'
-  },
 
   container1:{
     backgroundColor: 'black',
