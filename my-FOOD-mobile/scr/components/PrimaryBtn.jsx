@@ -12,7 +12,6 @@ const PrimaryBtn = ({label}) => {
 export default PrimaryBtn
 const styles = StyleSheet.create({
     container:{
-        // marginTop: 40,
         backgroundColor:"",
         paddingVertical: 16,
         // marginHorizontal: 18,

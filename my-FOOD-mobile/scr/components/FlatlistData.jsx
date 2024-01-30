@@ -2,9 +2,8 @@ import * as React from 'react'
 import { Image } from 'react-native'
 import Home from '../pages/home/Home'
 
-export {_openResturantData, _categoriesFoodData}
+// export {_openResturantData, _categoriesFoodData}
 
-const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705174513487/2429e79d-0446-47d8-8f68-453ce76daa40.png'
 
 // available resturant suggestion data
 const _openResturantData = [
