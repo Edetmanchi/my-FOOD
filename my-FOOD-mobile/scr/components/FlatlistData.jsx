@@ -38,8 +38,6 @@ const _openResturantData = [
         eta: ''
     }
 ]
-
-
  // all categories date
  const _allCategoriesData =[
     {
@@ -73,9 +71,7 @@ const _openResturantData = [
       name: 'Wine',
       image: <Image source={{uri: prevImage1}}  />,
     }
-  ]
-
-
+]
 const _categoriesFoodData = [
     {
         id: '1',

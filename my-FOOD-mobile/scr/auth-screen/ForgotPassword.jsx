@@ -24,12 +24,12 @@ export default function LogIn() {
                         <View style={styles.inputFieldContainer}>
                             <TextInput
                                 style={styles.inputField}
-                                    keyboardType='email-address'
-                                    placeholder='anything@gmail.com'
-                                    placeholderTextColor="#52545c"
-                                    value={text}
-                                    onChangeText={(text) => setPassword(text)}
-                                />
+                                  keyboardType='email-address'
+                                  placeholder='anything@gmail.com'
+                                  placeholderTextColor="#52545c"
+                                  value={text}
+                                  onChangeText={(text) => setPassword(text)}
+                              />
                         </View>
                     </View>
                 

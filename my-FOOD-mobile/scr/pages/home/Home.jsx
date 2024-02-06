@@ -19,7 +19,7 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
   const [search, setSearch] = useState("");
   const {seeAllCategory, setSeeAllCategory} = useState(false);
   
-const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705174513487/2429e79d-0446-47d8-8f68-453ce76daa40.png'
+  const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705174513487/2429e79d-0446-47d8-8f68-453ce76daa40.png'
 
   
   // all categories date
@@ -45,50 +45,53 @@ const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v17051745
      name: 'Rice',
      image: <Image source={{uri: prevImage1}}  style={styles.seeAllFlatlistImg}/>,
    },
-  //  {
-  //    id: '5',
-  //    name: 'Snacks',
-  //    image: <Image source={{uri: prevImage1}} />,
-  //  },
-  //  {
-  //    id: '6',
-  //    name: 'Wine',
-  //    image: <Image source={{uri: prevImage1}}  />,
-  //  }
+   {
+     id: '5',
+     name: 'Snacks',
+     image: <Image source={{uri: prevImage1}} />,
+   },
+   {
+     id: '6',
+     name: 'Wine',
+     image: <Image source={{uri: prevImage1}}  />,
+   }
   ]
 
   // Available resturant suggestions data
-//   const _availableResturantData = [
-//     {
-//         id: "1",
-//         // icon:<Preview1/>,
-//         image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
-//         name: 'Chicken Republic',
-//         rating: '4.2',
-//         eta: '25min'
-//     },
-//     // {
-//     //     id: "2",
-//     //     icon: <Preview1/>,
-//     //     name: 'Killomanjaro',
-//     //     rating: '3.2',
-//     //     eta: '35min'
-//     // },
-//     // {
-//     //     id: "3",
-//     //     icon:<Preview1/>,
-//     //     name: 'Chop-sticks',
-//     //     rating: '4.1',
-//     //     eta: '39min'
-//     // },
-//     // {
-//     //     id: "4",
-//     //     icon: <Preview1/>,
-//     //     name: 'Coldstone',
-//     //     rating: '3.1',
-//     //     eta: '29min'
-//     // },
-// ]
+  const _availableResturantData = [
+    {
+        id: "1",
+        // icon:<Preview1/>,
+        image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
+        name: 'Chicken Republic',
+        rating: '4.2',
+        eta: '25min'
+    },
+    {
+        id: "2",
+        // icon: <Preview1/>,
+        image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
+        name: 'Killomanjaro',
+        rating: '3.2',
+        eta: '35min'
+    },
+    {
+        id: "3",
+        // icon:<Preview1/>,
+        image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
+        name: 'Chop-sticks',
+        rating: '4.1',
+        eta: '39min'
+    },
+    {
+        id: "4",
+        // icon: <Preview1/>,
+        image: <Image source={{uri: prevImage1}} style={styles.prevImage} />,
+        name: 'Coldstone',
+        rating: '3.1',
+        eta: '29min'
+    },
+]
 
   // search functionality
   const updateSearch = (search) => {
@@ -133,27 +136,28 @@ const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v17051745
   };
 
   // items to render for available resturant suggestions
-  // const _availableResturant_renderItem = ({item}) =>{
-  //   <View>
-  //     <Pressable
-  //       style={[
-  //         // styles.scrollImgContainer,
-  //         // styles.selectedItem,
-  //       ]}
-  //     >
-  //       {/* <Text>{item.icon}</Text> */}
-  //       <Text>{item.name}</Text>
-  //       <Text style={styles.scrollImgText}>{item.name}</Text>
-  //     </Pressable>
-  //     <View>
-  //       <TouchableOpacity>{item.rating}</TouchableOpacity>
-  //       <TouchableOpacity>{item.eta}</TouchableOpacity>
-  //     </View>
-  //   </View>
-  //   }
+  const _availableResturant_renderItem = ({item}) =>{
+    <View>
+      <Pressable
+        style={[
+          // styles.scrollImgContainer,
+          // styles.selectedItem,
+        ]}
+      >
+        {/* <Text>{item.icon}</Text> */}
+        <Text>{item.name}</Text>
+        <Text style={styles.scrollImgText}>{item.name}</Text>
+      </Pressable>
+      <View>
+        <TouchableOpacity>{item.rating}</TouchableOpacity>
+        <TouchableOpacity>{item.eta}</TouchableOpacity>
+      </View>
+    </View>
+    }
 
   return (
     <SafeAreaView>
+      {/* search bar */}
     <View>
       <Text>Hey Edet,</Text><Text>{getGreeting()}</Text>
       <SearchBar
@@ -185,14 +189,14 @@ const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v17051745
           // style={[styles.flatList, { height: seeAllCategory? 'auto' : 50}]}
         />
       </View>
-      <View>
+      {/* <View>
         <FlatList
           showsHorizontalScrollIndicator={false}
           data={_availableResturantData}
           renderItem={_availableResturant_renderItem}
           keyExtractor={(item) => item.id}
         />
-      </View>
+      </View> */}
     </ScrollView>
 
     </SafeAreaView>
@@ -230,5 +234,10 @@ const styles = StyleSheet.create({
     width: 50,
     objectFit: 'contain',
     // backgroundColor:'black'
-  }
+  },
+  prevImage:{
+    // objectFit: 'contain',
+    width: 200,
+    height: 150
+},
 })
