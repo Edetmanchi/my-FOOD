@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ScrollView, Text, View , FlatList, StyleSheet, Image, Pressable, Animated, TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { SearchBar } from '@rneui/themed';
+import { Searchbar } from 'react-native-paper';
 // import { _openResturantData, _categoriesFoodData, _allCategoriesData } from '../../components/FlatlistData';
 
 
@@ -21,7 +21,6 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
   
   const prevImage1 = 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705174513487/2429e79d-0446-47d8-8f68-453ce76daa40.png'
 
-  
   // all categories date
   const _allCategoriesData =[
    {
@@ -105,17 +104,16 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
   
     let greeting;
     if (currentHour >= 5 && currentHour < 12) {
-      greeting = 'Good morning';
+      greeting = 'Good morning !';
     } else if (currentHour >= 12 && currentHour < 18) {
-      greeting = 'Good afternoon';
+      greeting = 'Good afternoon !';
     } else if (currentHour >= 18 && currentHour < 22) {
-      greeting = 'Good evening';
+      greeting = 'Good evening !';
     } else {
       greeting = 'Good night';
     }
     return greeting;
   }
-
 
   // items to render or all categories flatlist
   const _seeAllCategories_renderItem = ({ item }) => (
@@ -156,48 +154,52 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
     }
 
   return (
-    <SafeAreaView>
-      {/* search bar */}
-    <View>
-      <Text>Hey Edet,</Text><Text>{getGreeting()}</Text>
-      <SearchBar
-        ref={search => this.search = search}
-        placeholder="Type Here..."
-        onChangeText={updateSearch}
-        value={search}
-      />
-    </View>
-    <ScrollView>
-    {/* all categories */}
-      <View>
-        <View style={styles.scrollHeaderContainer}>
-          <Text style={styles.scrollHeaderText1}>
-            All Categories
-          </Text>
-          <TouchableOpacity onPress={toggleSeeAllCategory}>
-          <Text
-          style={styles.scrollHeaderText2}
-          >See All</Text>
-          </TouchableOpacity>
+    <SafeAreaView style={styles.body}>
+        {/* search bar */}
+      <View style={styles.view1}>
+        <View style={styles.userGreetingContainer}>
+        <Text style={styles.user}>Hey Edet,</Text><Text style={styles.greeting}>{getGreeting()}</Text>
         </View>
-        <AnimatedFlatList
-          showsHorizontalScrollIndicator={false}
-          horizontal={!seeAllCategory}
-          data={_allCategoriesData}
-          renderItem={_seeAllCategories_renderItem}
-          keyExtractor={(item) => item.id}
-          // style={[styles.flatList, { height: seeAllCategory? 'auto' : 50}]}
+        <Searchbar
+          ref={search => this.search = search}
+          placeholder="Type Here..."
+          onChangeText={updateSearch}
+          value={search}
+          style={styles.SearchBar}
         />
       </View>
-      {/* <View>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          data={_availableResturantData}
-          renderItem={_availableResturant_renderItem}
-          keyExtractor={(item) => item.id}
-        />
-      </View> */}
-    </ScrollView>
+      <ScrollView>
+      {/* all categories */}
+        <View style={styles.view2}>
+          <View style={styles.scrollHeaderContainer}>
+            <Text style={styles.scrollHeaderText1}>
+              All Categories
+            </Text>
+            <TouchableOpacity onPress={toggleSeeAllCategory}>
+            <Text
+              style={styles.scrollHeaderText2}
+              >See All</Text>
+            </TouchableOpacity>
+          </View>
+          <AnimatedFlatList
+            showsHorizontalScrollIndicator={false}
+            horizontal={!seeAllCategory}
+            data={_allCategoriesData}
+            renderItem={_seeAllCategories_renderItem}
+            keyExtractor={(item) => item.id}
+            // style={[styles.flatList, { height: seeAllCategory? 'auto' : 50}]}
+          />
+        </View>
+        {/* availabkle resturant view items */}
+        {/* <View>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            data={_availableResturantData}
+            renderItem={_availableResturant_renderItem}
+            keyExtractor={(item) => item.id}
+          />
+        </View> */}
+      </ScrollView>
 
     </SafeAreaView>
   );
@@ -208,10 +210,31 @@ export default Home
 
 const styles = StyleSheet.create({
   body:{
-
+    paddingHorizontal: 26,
+  
   },
   view1:{
+    paddingVertical: 5,
+    gap:10,
 
+  },
+  userGreetingContainer:{
+      flexDirection: 'row',
+      gap : 25
+  },
+  user:{
+    fontSize:15,
+  },
+  greeting:{
+    fontSize: 15,
+    fontWeight:'bold',
+  },
+  SearchBar:{
+    backgroundColor:'#DBDBDE',
+    borderRadius: 20
+  },
+  view2:{
+    
   },
   scrollImgContainer: {
     flexDirection: "column",
@@ -239,5 +262,5 @@ const styles = StyleSheet.create({
     // objectFit: 'contain',
     width: 200,
     height: 150
-},
+  },
 })
