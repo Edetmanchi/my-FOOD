@@ -90,35 +90,6 @@ const Home: React.FunctionComponent<SearchBarComponentProps> = () => {
         rating: '3.1',
         eta: '29min'
     },
-]]
-
-_allresturant_data-for dropdown [
-  {
-    name: '',
-    locaton:'',
-    key: '',
-  },
-  {
-    name: '',
-    locaton:'',
-    key: '',
-  },
-  {
-    name: '',
-    locaton:'',
-    key: '',
-  },
-  {
-    name: '',
-    locaton:'',
-    key: '',
-  },
-  {
-    name: '',
-    locaton:'',
-    key: '',
-  },
-
 ]
 
   // search functionality
