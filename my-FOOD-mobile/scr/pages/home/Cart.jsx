@@ -1,8 +1,7 @@
-/* This file has been downloaded from rnexamples.com */
-/* If You want to help us please go here https://www.rnexamples.com/help-us */
 import React, { useState } from 'react'
 import { View, Text, Button, Image, StyleSheet } from 'react-native'
 
+// cart items data
 const items = [
   { id: 1, name: 'Item 1', price: '$10', quantity: 1, image: 'https://www.bootdey.com/image/280x280/00FFFF/000000' },
   { id: 2, name: 'Item 2', price: '$20', quantity: 1, image: 'https://www.bootdey.com/image/280x280/FF00FF/000000' },
@@ -11,7 +10,8 @@ const items = [
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState(items)
-
+  
+  // CRUD functionality for cart
   const addItem = item => {
     setCartItems([...cartItems, item])
   }
