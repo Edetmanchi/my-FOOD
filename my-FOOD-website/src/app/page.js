@@ -1,11 +1,19 @@
-import Image from "next/image";
+import SearchBar from "@/components/Searchbar";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-2xl lg:flex">
-        Hello Rahmah!. How you dey na 
+    <main className="flex my-10 mx-8 gap-4"> 
+     <div className="w-4/6 h-24 bg-slate-400 rounded-lg ">
+      <div className="">
+        <span>Hi Edet</span>
+        <h1>What would you like to eat</h1>
       </div>
+
+      <SearchBar className='mx-20'/>
+     </div>
+     <div className="w-2/6 h-24 bg-black rounded-lg">
+      <h2>Your Order</h2>
+     </div>
     </main>
   );
 }

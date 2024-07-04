@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
             <div className="hidden md:block h-screen w-80">
               <Sidebar/>
             </div>
-            <div className="p-5 w-full   md:max-w-[1140px]">
+            <div className="w-full   md:max-w-[1240px]">
                <Navbar />
               {children}
             </div>
