@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { Navbar } from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
             </div>
             <div className="w-full   md:max-w-[1240px]">
                <Navbar />
+               <Breadcrumbs/>
               {children}
             </div>
           </div>

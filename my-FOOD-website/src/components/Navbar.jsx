@@ -1,5 +1,7 @@
-import Image from "next/image"
+"use client"
 import Link from "next/link"
+// import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { MapPin, ChevronDown } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -10,14 +12,14 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
-  import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from "@/components/ui/accordion"
+  import { EditAddress } from "./EditAddress"
 
 export const Navbar = () => {
+  const router = useRouter();
+
+  const handleNavigation = () => {
+    router.push('/EditAddress');
+  };
   return (
     <div className="bg-slate-200 dark:bg-dark-700 border-b-2 py-3 px-4 flex justify-between">
 
@@ -31,9 +33,9 @@ export const Navbar = () => {
           <DropdownMenuContent>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                    <Link href='/Profile'>
-                    Area A, Nyanya
-                    </Link>
+                    <a onClick={handleNavigation}>
+                      Area A, Nyanya
+                    </a>
                 </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
