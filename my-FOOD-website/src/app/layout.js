@@ -2,8 +2,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { Navbar } from "@/components/Navbar";
-import Breadcrumbs from "@/components/Breadcrumbs";
 const inter = Inter({ subsets: ["latin"] });
+import Background from '../components/img/Food-bg.jpg'
+
 
 export const metadata = {
   title: "my-FOOD",
@@ -19,9 +20,10 @@ export default function RootLayout({ children }) {
               <Sidebar/>
             </div>
             <div className="w-full   md:max-w-[1240px]">
-               <Navbar />
-               <Breadcrumbs/>
-              {children}
+             <Navbar />
+              {/* <div className=" bg-cover bg-center blur-sm h-64 z-0" style={{ backgroundImage: `url(${Background.src})` }}>
+                </div> */}
+               {children}
             </div>
           </div>
         </body>

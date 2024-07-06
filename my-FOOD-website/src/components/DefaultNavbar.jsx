@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link"
-// import { useRouter } from "next/router"
 import { useRouter } from "next/navigation"
 import { MapPin, ChevronDown } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -13,21 +12,24 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
   import { EditAddress } from "./EditAddress"
+  import SearchBar from "./Searchbar"
 
-export const Navbar = () => {
+export const DefaultNavbar = () => {
   const router = useRouter();
 
   const handleNavigation = () => {
     router.push('/EditAddress');
   };
   return (
-    <div className="bg-slate-500 dark:bg-dark-700 border-b-2 py-1 px-4 flex justify-between z-10">
+    <div className="bg-slate-50 dark:bg-dark-700 border-b-2 py-1 px-4 flex justify-between">
+
+
         <DropdownMenu>
           <DropdownMenuTrigger className='focus:outline-none flex gap-2 items-center'>
-             <MapPin className="text-slate-900 "/>
-              <span className="text-white font-bold">Delivered to</span>
+             <MapPin />
+              <span>Delivered to</span>
               <ChevronDown />
-         </DropdownMenuTrigger>
+          </DropdownMenuTrigger>
           <DropdownMenuContent>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
@@ -37,6 +39,8 @@ export const Navbar = () => {
                 </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <Searchbar/>
+
 
         <DropdownMenu>
           <DropdownMenuTrigger className='focus:outline-none rounded-full p-4 bg-slate-200'>
