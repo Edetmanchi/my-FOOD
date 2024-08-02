@@ -69,3 +69,56 @@ export const Navbar = () => {
     </div>
   )
 }
+
+
+
+
+
+
+
+
+
+// 'use client'
+// import { useEffect, useState } from "react";
+
+// export default function Layout({ children }) {
+//   const [navbarBg, setNavbarBg] = useState(false);
+
+//   useEffect(() => {
+//     const changeBackground = () => {
+//       if (window.scrollY >= 80) {
+//         setNavbarBg(true);
+//       } else {
+//         setNavbarBg(false);
+//       }
+//     };
+//     window.addEventListener("scroll", changeBackground);
+//     return () => window.removeEventListener("scroll", changeBackground);
+//   }, []);
+
+//   return (
+//     <div className="relative h-screen w-full bg-cover bg-center">
+//       <nav className={`fixed w-full z-50 ${navbarBg ? "bg-blue-500" : "bg-transparent"} transition-colors duration-300`}>
+//         <div className="container mx-auto flex justify-between items-center p-4">
+//           <div className="text-white font-bold text-xl">Logo</div>
+//           <div className="flex space-x-4">
+//             <button className="text-white border-white border rounded px-4 py-2">Sign In</button>
+//             <button className="text-white border-white border rounded px-4 py-2">Sign Up</button>
+//           </div>
+//         </div>
+//       </nav>
+//       <div className="h-full flex flex-col justify-center items-center bg-opacity-50 bg-black text-white">
+//         {/* {children} */}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+import { getAuth, GoogleAuthProvider} from "firebase/auth"
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+//  web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCgtTAtGl1k2RGMokQ0QI1SHe51tI1SftU",
+  authDomain: "my-food-website-74b3c.firebaseapp.com",
+  projectId: "my-food-website-74b3c",
+  storageBucket: "my-food-website-74b3c.appspot.com",
+  messagingSenderId: "216793524486",
+  appId: "1:216793524486:web:171159fbac2252ace21687",
+  measurementId: "G-CPEFNP8DVD"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+export const auth = getAuth(app)
+export const googleProvider = new GoogleAuthProvider();
