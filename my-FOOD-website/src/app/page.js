@@ -22,7 +22,7 @@ export default function Home() {
               <div className="items-start justify-center">
                 <span className="text-lg font-bold text-slate-900">Hi Edet</span>
                 <h1 className="text-3xl font-bold ">What would you like to eat</h1>
-                <div className="flex gap-3 text-center">
+                <div className="flex gap3 text-center">
                   <Heart />
                   <span>Voucher</span>
                   <span className="bg-red-600 p-1 rounded ">0</span>
