@@ -46,10 +46,9 @@ export default function Signin() {
 
     }
   return (
-
     <Dialog>
       <DialogTrigger asChild className='px-10 py-3 text-white bg-orange-600 hover:bg-orange-700 text-lg rounded-lg'>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline"></Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
