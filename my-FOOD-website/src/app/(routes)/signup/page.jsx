@@ -15,29 +15,30 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Space } from "lucide-react";
 
 
 
 export default function Signup() {
   return (
-    <div className="flex justify-between items-center gap-10">
+    <div className="flex justify-between items-center">
         <Dialog>
             <DialogTrigger asChild className=' hover:bg-slate-200 px-8 py-6 shadow-lg rounded-lg'>
                 <Button className='text-lg font-bold text-orange-600' variant="outline">Sign-up</Button>
             </DialogTrigger>
-            <DialogContent className=" ">
+            <DialogContent className="flex flex-col">
                 <div>
                     <Link href='/'>
-                        <Image src={Logo} alt="Logo"/>
+                        {/* <Image src={Logo} size={20} alt="Logo"/> */}
                     </Link>
                 </div>
                 <DialogHeader className='items-center justify-center'>
                     <DialogTitle className='font-bolder text-orange-600 text-2xl'>Sign Up</DialogTitle>
-                    <DialogDescription className='text-slate-500 text-sm py-1'>
+                    <DialogDescription className='text-slate-500 text-sm'>
                         Please Sign-up to get started
                     </DialogDescription>
                 </DialogHeader>
-                <div className="grid gap-4 py-1 mx-24 items-center">
+                <div className="grid gap-3 mx-24 items-center">
                     {/* name  */}
                     <div className="flex flex-col items-start gap-4">
                         <Label htmlFor="name" className="font-thin">
@@ -78,14 +79,27 @@ export default function Signup() {
                         </Label>
                         <Input
                             id="confirm-password"
-                            className="font-thin"
+                            className="bg-slate-100 py-4"
                             placeholder='confirm password'
                         />
                     </div>
-                    <Button type="submit">Sign Up</Button>
+                    <Button type="submit" className='bg-orange-500 font-bold'>Sign Up</Button>
+                    <div className="flex flex-col text-center">
+                         <span>Already have an account? <Link href='/signin' className="text-orange-500 font-bold">Log-In</Link></span>
+                         <span className='text-orange-500 text-lg'>OR</span>
+                         <span className="font-thin text-sm">Sign up with</span>
+                    </div>
                 </div>
-                <DialogFooter>
-                    <FcGoogle size={40}/>
+                <DialogFooter className='flex gap-5 mx-auto'>
+                    <Link href="/">
+                        <FcGoogle size={22} className="transition transform hover:scale-125 duration-300"/>
+                    </Link>
+                    <Link href="/">
+                        <FaApple size={22} className="transition transform hover:scale-125 duration-300"/>
+                    </Link>
+                    <Link href="/">
+                        <FaFacebook size={22} className="transition transform hover:scale-125 duration-300"/>
+                    </Link>
                   
                 </DialogFooter>
             </DialogContent>

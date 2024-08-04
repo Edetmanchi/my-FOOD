@@ -23,7 +23,7 @@ import { Space } from "lucide-react";
 
 
 
-export default function Signin() {
+export default function ResetPassword() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -68,24 +68,12 @@ export default function Signin() {
                     </Link>
                 </div>
                 <DialogHeader className='items-center justify-center'>
-                    <DialogTitle className='font-bolder text-orange-600 text-3xl'>Sign In</DialogTitle>
+                    <DialogTitle className='font-bolder text-orange-600 text-3xl'>Reset Password</DialogTitle>
                     <DialogDescription className='text-slate-500 text-sm'>
-                        Kindly enter your Login details below
+                        Reset your password below
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 mx-24 items-center">
-                    {/* name  */}
-                    <div className="flex flex-col items-start gap-4">
-                        <Label htmlFor="email" className="font-thin">
-                            Email
-                        </Label>
-                        <Input
-                            id="name"
-                            className="bg-slate-100 h-14"
-                            placeholder='email / username / phone-number'
-                        />
-                    </div>
-                    {/* password */}
                     <div className="flex flex-col items-start gap-4">
                         <Label htmlFor="password" className="font-thin">
                             Password
@@ -96,25 +84,18 @@ export default function Signin() {
                             placeholder='password'
                         />
                     </div>
-                    <Button type="submit" className='bg-orange-500 font-bold h-14'>Sign In</Button>
-                    <div className="flex flex-col text-center">
-                         <span>Don't have an account? <Link href='/signup' className="text-orange-500 font-bold">Sign up</Link></span>
-                         <span className='text-orange-500 text-lg'>OR</span>
-                         <span className="font-thin text-sm">Log In with</span>
+                    <div className="flex flex-col items-start gap-4">
+                        <Label htmlFor="password" className="font-thin">
+                            Re-type Password
+                        </Label>
+                        <Input
+                            id="re-type-password"
+                            className="bg-slate-100 h-14"
+                            placeholder='Re-type password'
+                        />
                     </div>
+                    <Button type="submit" className='bg-orange-500 font-bold h-14'>Sign In</Button> 
                 </div>
-                <DialogFooter className='flex gap-5 mx-auto'>
-                    <Link href="/">
-                        <FcGoogle size={22} className="transition transform hover:scale-125 duration-300"/>
-                    </Link>
-                    <Link href="/">
-                        <FaApple size={22} className="transition transform hover:scale-125 duration-300"/>
-                    </Link>
-                    <Link href="/">
-                        <FaFacebook size={22} className="transition transform hover:scale-125 duration-300"/>
-                    </Link>
-                  
-                </DialogFooter>
             </DialogContent>
         </Dialog>        
     </div>
