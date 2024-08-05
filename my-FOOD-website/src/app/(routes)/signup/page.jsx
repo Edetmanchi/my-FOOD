@@ -1,3 +1,7 @@
+"use client"
+import React, { useState } from 'react'
+import {auth} from '../../../firebase-config/firebase'
+import {createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth"
 import Logo from "../../../components/img/Logo.png"
 import Image from "next/image"
 import Link from "next/link"
@@ -15,7 +19,6 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Space } from "lucide-react";
 
 
 

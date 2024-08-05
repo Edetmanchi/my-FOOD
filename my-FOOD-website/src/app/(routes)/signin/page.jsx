@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import {} from '../../../firebase-config/firebase'
-import {createUserWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
+import {createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth"
 import Logo from "../../../components/img/Logo.png"
 import Image from "next/image"
 import Link from "next/link"
@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Space } from "lucide-react";
 
 
 
@@ -27,7 +26,7 @@ export default function Signin() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const signin = async()=>{
+  const signIn = async()=>{
       try{
           await createUserWithEmailAndPassword(auth, email, password)
       }catch(err){
@@ -42,14 +41,7 @@ export default function Signin() {
       }
 
   }
-  const logout= async()=>{
-      try{
-          await signOut(auth)
-      }catch(err){
-       console.error(err)
-      }
 
-  }
 
 
 
@@ -96,24 +88,17 @@ export default function Signin() {
                             placeholder='password'
                         />
                     </div>
-                    <Button type="submit" className='bg-orange-500 font-bold h-14'>Sign In</Button>
+                    <Button type="submit" className='bg-orange-500 font-bold h-14' onClick={signIn} >Sign In</Button>
                     <div className="flex flex-col text-center">
-                         <span>Don't have an account? <Link href='/signup' className="text-orange-500 font-bold">Sign up</Link></span>
-                         <span className='text-orange-500 text-lg'>OR</span>
-                         <span className="font-thin text-sm">Log In with</span>
+                        <span>Don't have an account? <Link href='/signup' className="text-orange-500 font-bold">Sign up</Link></span>
+                        <span className='text-orange-500 text-lg'>OR</span>
+                        <span className="font-thin text-sm">Log In with</span>
                     </div>
                 </div>
                 <DialogFooter className='flex gap-5 mx-auto'>
-                    <Link href="/">
-                        <FcGoogle size={22} className="transition transform hover:scale-125 duration-300"/>
-                    </Link>
-                    <Link href="/">
-                        <FaApple size={22} className="transition transform hover:scale-125 duration-300"/>
-                    </Link>
-                    <Link href="/">
-                        <FaFacebook size={22} className="transition transform hover:scale-125 duration-300"/>
-                    </Link>
-                  
+                    <FcGoogle onClick={signInWithGoogle} size={22} className="transition transform hover:scale-125 duration-300"/>
+                    <FaApple size={22} className="transition transform hover:scale-125 duration-300"/>
+                    <FaFacebook size={22} className="transition transform hover:scale-125 duration-300"/>                  
                 </DialogFooter>
             </DialogContent>
         </Dialog>        
