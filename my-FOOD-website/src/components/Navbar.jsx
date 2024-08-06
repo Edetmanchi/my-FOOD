@@ -166,7 +166,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="border-b-2 py-1 px-4 flex justify-center items-center  overflow-hidden">
+    <div className=" bg-white border-b-2 py-1 px-4 flex justify-between items-center">
       <DropdownMenu>
         <DropdownMenuTrigger className='focus:outline-none flex gap-2 items-center'>
           <MapPin className="text-slate-900" />

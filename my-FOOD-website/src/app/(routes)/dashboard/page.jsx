@@ -12,12 +12,10 @@ import SearchBar from "@/components/Searchbar";
 
 
 export default function Dashboard() {
-
   return (
-    <main className=" bg-slate-100 items-center justify-evenly flex flex-col min-h-screen"> 
-        
-        <div className="justify-center items-center w-full">
-          <div className="flex w-full h-80">
+    <main className=" mx-3 mt-10 justify-center flex flex-col">         
+        <div className="justify-between items-center w-full space-y-20">
+          <div className="flex w-full h-80 gap-8">
             <div className=" flex flex-col w-4/6  bg-slate-50 justify-between  shadow-lg rounded-tr-full rounded-lg p-10 transition transform hover:scale-100 duration-200">
               <div className="items-start justify-center">
                 <span className="text-lg font-bold text-slate-900">Hi Edet</span>
@@ -37,17 +35,23 @@ export default function Dashboard() {
                 <h2 className="font-bold py-3 text-slate-800 text-center text-2xl">Your Order</h2>
             </div>
           </div>
-        </div>
-        {/* menu icons */}
-        <div className="flex text-slate-700 items-center justify-center gap-16">
-          <PiBowlFood size={40} className="transition transform hover:scale-125 duration-300"/>
-          <GiHamburger size={40} className="transition transform hover:scale-125 duration-300"/>
-          <FaPizzaSlice size={40}className="transition transform hover:scale-125 duration-300"/>
-          <GiRoastChicken size={40}className="transition transform hover:scale-125 duration-300"/>
-          <PiFishLight size={40}className="transition transform hover:scale-125 duration-300"/>
-          <TbSoupFilled size={40}className="transition transform hover:scale-125 duration-300"/>
-          <GiSandwich size={40}className="transition transform hover:scale-125 duration-300"/>
-          <BsFillCake2Fill size={40}className="transition transform hover:scale-125 duration-300"/>
+          {/* menu icons */}
+          <div className="flex text-slate-700 items-center justify-center gap-16 px-5">
+            <div className="fflex flex-col justify-center items-center">
+              <PiBowlFood size={40} className="transition transform hover:scale-125 duration-300"/>
+              Noodles
+            </div>
+            <div className="fflex flex-col justify-center items-center">
+            <GiHamburger size={40} className="transition transform hover:scale-125 duration-300"/>
+              Hamburger
+            </div>
+            <FaPizzaSlice size={40}className="transition transform hover:scale-125 duration-300"/>
+            <GiRoastChicken size={40}className="transition transform hover:scale-125 duration-300"/>
+            <PiFishLight size={40}className="transition transform hover:scale-125 duration-300"/>
+            <TbSoupFilled size={40}className="transition transform hover:scale-125 duration-300"/>
+            <GiSandwich size={40}className="transition transform hover:scale-125 duration-300"/>
+            <BsFillCake2Fill size={40}className="transition transform hover:scale-125 duration-300"/>
+          </div>
         </div>
     </main>
   );
