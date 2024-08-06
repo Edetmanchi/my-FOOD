@@ -29,7 +29,7 @@ const [navbarBg, setNavbarBg] = useState(false);
   return (
     <html lang="en">
       <body className={inter.className}>
-          <div className="flex">
+          <div className="flex bar overflow-hidden">
             <div className="hidden md:block h-screen w-1/5">
               <Sidebar/>
             </div>

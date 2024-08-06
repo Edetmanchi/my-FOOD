@@ -7,6 +7,7 @@ import { TbSoupFilled } from "react-icons/tb";
 import { GiSandwich } from "react-icons/gi";
 import { BsFillCake2Fill } from "react-icons/bs";
 import SearchBar from "@/components/Searchbar";
+import AvailableRestaurant from "@/components/AvailableResturant";
 
 
 
@@ -52,6 +53,8 @@ export default function Dashboard() {
             <GiSandwich size={40}className="transition transform hover:scale-125 duration-300"/>
             <BsFillCake2Fill size={40}className="transition transform hover:scale-125 duration-300"/>
           </div>
+          {/* <AvailableRestaurant/> */}
+      
         </div>
     </main>
   );
