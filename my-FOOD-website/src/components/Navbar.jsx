@@ -125,7 +125,7 @@
 "use client"
 import Link from "next/link";
 import { auth } from "../firebase-config/firebase";
-import { signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { MapPin, ChevronDown } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -157,6 +157,8 @@ export const Navbar = () => {
     router.push('/EditAddress');
   };
 
+  // firebase logout function
+  const auth = getAuth();
   const logout = async () => {
     try {
       await signOut(auth);
@@ -164,6 +166,13 @@ export const Navbar = () => {
       console.error(err);
     }
   };
+
+  
+
+
+
+
+
 
   return (
     <div className=" bg-white border-b-2 py-1 px-4 flex justify-between items-center">

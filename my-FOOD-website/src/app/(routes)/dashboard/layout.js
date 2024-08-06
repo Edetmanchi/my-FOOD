@@ -29,18 +29,20 @@ const [navbarBg, setNavbarBg] = useState(false);
   return (
     <html lang="en">
       <body className={inter.className}>
-          <div className="flex bar overflow-hidden">
+          <div className="flex">
             <div className="hidden md:block h-screen w-1/5">
               <Sidebar/>
             </div>
             <div className="h-screen flex flex-col w-4/5">
-              <div className="w-full h-[30rem]" 
+              <div className=" h-[30rem] backdrop-blur" 
               style={{ backgroundImage: `url(${BackgroundImage.src})` }} >
-               <div className="">
-                  <Navbar/>
-                </div>
-                <div className="" >
-                  {children}
+                <div className="absolute inset-0 backdrop-blur-sm">
+                  <div className="">
+                    <Navbar/>
+                  </div>
+                  <div className="" >
+                    {children}
+                  </div>
                 </div>
               </div>
             </div>
