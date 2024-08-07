@@ -72,7 +72,6 @@ export default function Home() {
           More Details
         </button>
       </div>
-
       <div className="mt-8">
         <AutoPlay />
       </div>
@@ -95,7 +94,6 @@ export default function Home() {
           className=" w-full object-cover"
         />
       </div>
-
       <div className="flex justify-between items-center m-20">
         <div className="">
           <h1 className="text-4xl font-bold">
@@ -127,6 +125,7 @@ export default function Home() {
           className="object-cover w-80 h-80"
         />
       </div>
+
       <h1 className="text-center text-4xl font-bold mt-12 text-black">
         Our Best Services
       </h1>
