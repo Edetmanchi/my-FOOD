@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Logo from "../components/img/Logo.png"
 import { Button } from './ui/button'
+import {Spinner} from "../components/Spinner"
 
 
 export default function Nav() {
@@ -23,8 +24,9 @@ export default function Nav() {
             <Signup/>
             <Signin/>
             <Link href='/dashboard'>
-            <Button className='bg-black text-white p-5'>To Dashboard</Button>
+                <Button className='bg-black text-white p-5'>To Dashboard</Button>
             </Link>
+            {/* <Spinner /> */}
         </div>
     </div>
   )

@@ -66,29 +66,31 @@ export default function Signin() {
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 mx-24 items-center">
-                    {/* name  */}
-                    <div className="flex flex-col items-start gap-4">
-                        <Label htmlFor="email" className="font-thin">
-                            Email
-                        </Label>
-                        <Input
-                            id="name"
-                            className="bg-slate-100 h-14"
-                            placeholder='email / username / phone-number'
-                        />
-                    </div>
-                    {/* password */}
-                    <div className="flex flex-col items-start gap-4">
-                        <Label htmlFor="password" className="font-thin">
-                            Password
-                        </Label>
-                        <Input
-                            id="password"
-                            className="bg-slate-100 h-14"
-                            placeholder='password'
-                        />
-                    </div>
-                    <Button type="submit" className='bg-orange-500 font-bold h-14' onClick={signIn} >Sign In</Button>
+                    <form type='submit'onSubmit={signIn}>
+                        {/* name  */}
+                        <div className="flex flex-col items-start gap-4">
+                            <Label htmlFor="email" className="font-thin">
+                                Email
+                            </Label>
+                            <Input
+                                id="name"
+                                className="bg-slate-100 h-14"
+                                placeholder='email / username / phone-number'
+                            />
+                        </div>
+                        {/* password */}
+                        <div className="flex flex-col items-start gap-4">
+                            <Label htmlFor="password" className="font-thin">
+                                Password
+                            </Label>
+                            <Input
+                                id="password"
+                                className="bg-slate-100 h-14"
+                                placeholder='password'
+                            />
+                        </div>
+                        <Button type="submit" className='bg-orange-500 font-bold h-14' >Sign In</Button>
+                    </form>
                     <div className="flex flex-col text-center">
                         <span>Don't have an account? <Link href='/signup' className="text-orange-500 font-bold">Sign up</Link></span>
                         <span className='text-orange-500 text-lg'>OR</span>

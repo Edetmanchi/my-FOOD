@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import {auth, googleProvider} from "../../../firebase-config/firebase"
 import {createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth"
 import Link from "next/link"
+import { useRouter } from 'next/router'
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
@@ -26,17 +27,19 @@ export default function Signup() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('false')
 
+    // const router = useRouter();
+
     const handleFormSubmit = async (e)=>{
         e.preventDefault();
         try{
-            await createUserWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, username, email, password);
         }catch(err){
             setError(err.message)
         }
     }
 
 
-    const handleSignupWithGoogle = async (e)=>{
+    const handleSignupWithGoogle = async ()=>{
         try{
             await signInWithPopup(auth, googleProvider)
         }catch(err){
@@ -114,7 +117,7 @@ export default function Signup() {
                                     placeholder='confirm password'
                                 />
                             </div>
-                            <Button type="submit" className='bg-orange-500 hover:bg-orange-600 font-bold'>Sign Up</Button>
+                            <Button type="submit" className='bg-orange-50 font-bold'>Sign Up</Button>
                             <div className="flex flex-col text-center">
                                 <span>Already have an account? <Link href='/signin' className="text-orange-500 font-bold">Log-In</Link></span>
                                 <span className='text-orange-500 text-lg'>OR</span>
