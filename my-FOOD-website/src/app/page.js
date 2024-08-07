@@ -1,6 +1,6 @@
 import HomePageSwiper from "@/components/HomePageSwiper";
 import WhyChooseUs from "@/components/WhyChooseUsCard";
-import Image from "next/image";
+import SearchBar from "@/components/Searchbar";
 import CuisineCard from "@/components/CuisineCard";
 import AutoPlay from "@/components/AutoPlay";
 import Services from "@/components/Services";
