@@ -4,8 +4,6 @@ import React from "react";
 function HomePageSwiper() {
   return (
     <div>
-      <div className="text-7xl">Header to be created by Edet</div>
-      <hr />
       {/* Hero section */}
       <div className="relative w-screen h-[80vh] overflow-hidden ">
         <Image

@@ -91,22 +91,20 @@ export default function Nav() {
   }, [isModalOpen]);
 
   return (
-    <div className="items-center justify-between px-12 py-5 flex mb-3">
+    <div className="items-center justify-between px-12 py-3 flex mb-1">
       <div>
         <Link href="/">
           <Image src={Logo} alt="logo" width={80} />
         </Link>
       </div>
-      <div className="w-[40rem]">
-        <SearchBar />
-      </div>
+    
       <div className="flex items-center justify-center gap-10">
-        <Button onClick={() => openModal('signup')}>Sign Up</Button>
-        <Button onClick={() => openModal('signin')}>Sign In</Button>
+        <Button onClick={() => openModal('signin')} className='bg-transparent hover:bg-slate-50 text-orange-600 font-bold px-10 py-6 border border-gray-300 text-lg rounded  transition transform hover:scale-105'>Sign In</Button>
+        <Button onClick={() => openModal('signup')} className='bg-black hover:bg-slate-700 text-white font-bold px-10 py-6 rounded text-lg transition transform hover:scale-105'>Sign Up</Button>
         {isModalOpen && modalType === 'signup' && <Signup onClose={closeModal} />}
         {isModalOpen && modalType === 'signin' && <Signin onClose={closeModal} />}
         <Link href="/dashboard">
-          <Button className="bg-black text-white p-5">To Dashboard</Button>
+          <Button className='bg-black hover:bg-slate-700 text-white font-bold px-10 py-6 rounded text-lg transition transform hover:scale-105'>To Dashboard</Button>
         </Link>
       </div>
     </div>

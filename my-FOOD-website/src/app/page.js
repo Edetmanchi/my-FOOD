@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <>
       {/* <div> */}
-        {/* <HomePageSwiper /> */}
+        <HomePageSwiper />
         <div className="bg-[#FF7622] pt-10 px-20 h-[80vh] ">
           <h1 className="text-[#3E3C39] font-bold text-4xl text-center mb-10">
             Why Choose Us?

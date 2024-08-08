@@ -32,8 +32,8 @@ const Modal = ({ title, description, onClose, children }) => {
               </svg>
           </button>
           <div className="flex flex-col justify-between items-center my-4 ">
-            <h2 className="text-2xl text-orange-600 font-bold">{title}</h2>
-           <p className="mb-4 text-gray-700">{description}</p>
+            <h2 className="text-3xl text-orange-600 font-extrabold">{title}</h2>
+           <p className="mb-4 text-slate-600">{description}</p>
           </div>
           {children}
         </div>
