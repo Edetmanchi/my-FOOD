@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
           <div className="">
-            <div className=" flex w-full">
+            <div className=" flex">
               <Nav />
             </div>
             {/* {children} */}
