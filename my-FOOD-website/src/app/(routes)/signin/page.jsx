@@ -1,50 +1,3 @@
-// "use client"
-// import React, { useState } from 'react'
-// import {} from '../../../firebase-config/firebase'
-// import {createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth"
-// import Logo from "../../../components/img/Logo.png"
-// import Image from "next/image"
-// import Link from "next/link"
-// import { FcGoogle } from "react-icons/fc";
-// import { FaApple, FaFacebook } from "react-icons/fa";
-// import { Button } from "@/components/ui/button"
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogDescription,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
-
-
-
-// export default function Signin() {
-//   const [email, setEmail] = useState("")
-//   const [password, setPassword] = useState("")
-
-//   const signIn = async()=>{
-//       try{
-//           await createUserWithEmailAndPassword(auth, email, password)
-//       }catch(err){
-//        console.error(err)
-//       }
-//   }
-//   const signInWithGoogle = async()=>{
-//       try{
-//           await signInWithPopup(auth, googleProvider)
-//       }catch(err){
-//        console.error(err)
-//       }
-
-//   }
-
-
-
-
 
 
 //   return (
@@ -112,61 +65,100 @@
 
 
 
-const Signin = ({ title, description, onClose }) => {
-    return (
-      <div
-        className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm z-50"
-        onClick={onClose}
-      >
-        <div
-          className="bg-white w-1/3 p-4 rounded shadow-lg"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-bold">{title}</h2>
-            <button onClick={onClose} className="text-gray-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <p className="mb-4 text-gray-700">{description}</p>
-          <form>
-            <div className="mb-4">
-              <label className="block text-gray-700">Email</label>
-              <input
-                type="email"
-                className="w-full px-3 py-2 border border-gray-300 rounded"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Password</label>
-              <input
-                type="password"
-                className="w-full px-3 py-2 border border-gray-300 rounded"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-            >
-              Sign in
-            </button>
-          </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'use client'
+import { useState } from 'react';
+import Modal from '@/components/Modal';
+import {} from '../../../firebase-config/firebase'
+import {createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth"
+import Image from "next/image"
+import Link from "next/link"
+import { FcGoogle } from "react-icons/fc";
+import { FaApple, FaFacebook } from "react-icons/fa";
+
+const Signin = ({ onClose }) => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const signIn = async()=>{
+    try{
+        await createUserWithEmailAndPassword(auth, email, password)
+    }catch(err){
+     console.error(err)
+    }
+  }
+  const signInWithGoogle = async()=>{
+      try{
+          await signInWithPopup(auth, googleProvider)
+      }catch(err){
+      console.error(err)
+      }
+
+  }
+
+  return (
+    <Modal
+      title="Sign In"
+      description="Please fill out the form below to sign in."
+      onClose={onClose}
+    >
+      <form type='submit' onSubmit={signIn}>
+        <div className="mb-3 items-start">
+          <label className="block text-gray-700 font-thin">Email</label>
+          <input
+            type="email"
+            value={email}
+            placeholder='Enter username or email'
+            onChange={(e) => setEmail(e.target.value)}
+            className="px-2 rounded bg-slate-200 h-14 w-full"
+          />
         </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-thin">Password</label>
+          <input
+            type="password"
+            value={password}
+            placeholder='Password'
+            onChange={(e) => setPassword(e.target.value)}
+            className="px-2 rounded bg-slate-200 h-14 w-full"
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full text-white  rounded-lg hover:bg-slate-900 bg-orange-500 font-bold h-12"
+        >
+          Sign In
+        </button>
+      </form>
+      <div className="flex flex-col text-center">
+          <span>Don't have an account? <Link href='/signup' className="text-orange-500 font-bold">Sign up</Link></span>
+          <span className='text-orange-500 text-lg'>OR</span>
+          <span className="font-thin text-sm">Log In with</span>
       </div>
-    );
-  };
-  
-  export default Signin;
+      <div className='flex gap-7 mx-auto justify-center my-2'>
+          <FcGoogle onClick={signInWithGoogle} size={23} className="transition transform hover:scale-125 duration-300"/>
+          <FaApple size={23} className="transition transform hover:scale-125 duration-300"/>
+          <FaFacebook size={23} className="transition transform hover:scale-125 duration-300"/>                  
+      </div>
+    </Modal>
+  );
+};
+
+export default Signin;
