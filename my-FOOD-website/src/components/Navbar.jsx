@@ -138,17 +138,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EditAddress } from "./EditAddress";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 
 export const Navbar = () => {
   const router = useRouter();
@@ -176,7 +165,7 @@ export const Navbar = () => {
 
   return (
     <div className=" bg-white border-b-2 py-1 px-4 flex justify-between items-center">
-      <DropdownMenu>
+      {/* <DropdownMenu>
         <DropdownMenuTrigger className='focus:outline-none flex gap-2 items-center'>
           <MapPin className="text-slate-900" />
           <span className="text-white font-bold truncate">Delivered to</span>
@@ -190,7 +179,7 @@ export const Navbar = () => {
             </a>
           </DropdownMenuItem>
         </DropdownMenuContent>
-      </DropdownMenu>
+      </DropdownMenu> */}
 
       <DropdownMenu>
         <DropdownMenuTrigger className='focus:outline-none rounded-full p-2 bg-slate-100'>
