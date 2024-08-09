@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Modal from '@/components/Modal';
 import {auth, googleProvider} from '../../../firebase-config/firebase'
-import {createUserWithEmailAndPassword, signupWithGoogle} from "firebase/auth"
+import {createUserWithEmailAndPassword,signupWithGoogle} from "firebase/auth"
 import Link from "next/link"
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
@@ -22,7 +22,7 @@ const Signup = ({ onClose }) => {
           setError(err.message)
       }
     }
-    const signupWithGoogle = async ()=>{
+    const handleSignupWithGoogle = async ()=>{
         try{
             await signupWithGoogle(auth, googleProvider)
         }catch(err){
@@ -92,7 +92,10 @@ const Signup = ({ onClose }) => {
           <span className="font-thin text-sm">Sign up with</span>
       </div>
       <div className='flex gap-7 mx-auto justify-center my-2'>
-          <FcGoogle onClick={signupWithGoogle} size={23} className="transition transform hover:scale-125 duration-300"/>
+        <button onClick={handleSignupWithGoogle}>
+
+          <FcGoogle size={23} className="transition transform hover:scale-125 duration-300"/>
+        </button>
           <FaApple size={23} className="transition transform hover:scale-125 duration-300"/>
           <FaFacebook size={23} className="transition transform hover:scale-125 duration-300"/>                  
       </div>

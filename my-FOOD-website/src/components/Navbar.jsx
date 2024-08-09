@@ -137,6 +137,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { 
+  AlertDialog,
+   AlertDialogTrigger,
+   AlertDialogHeader, 
+   AlertDialogTitle, 
+   AlertDialogDescription, 
+   AlertDialogAction, 
+   AlertDialogFooter, 
+   AlertDialogContent, 
+   AlertDialogCancel, 
+   } from "@radix-ui/react-alert-dialog";
 import { EditAddress } from "./EditAddress";
 
 export const Navbar = () => {
