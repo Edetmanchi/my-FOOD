@@ -6,6 +6,7 @@ import {createUserWithEmailAndPassword,signInWithPopup} from "firebase/auth"
 import Link from "next/link"
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
+import { Spinner } from '@chakra-ui/react'
 
 const Signup = ({ onClose }) => {
     const [username, setUsername] = useState('')
@@ -85,6 +86,9 @@ const Signup = ({ onClose }) => {
         >
           Sign Up
         </button>
+
+        <Spinner />
+
         {error && <p>Invalid user credentials</p>}
       </form>
       <div className="flex flex-col text-center">

@@ -84,11 +84,11 @@ const Signin = ({ onClose }) => {
               id="rememberMe"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
-              className="mr-2"
+              className="mr-2 "
             />
             <label htmlFor="rememberMe" className="text-slate-500 font-thin">Remember Me</label>
           </div>
-          <Link href="/orgot-password" className="text-orange-500 font-bold">Forgot Password?</Link>
+          <Link href="/forgotPassword" className="text-orange-500 font-thin">Forgot Password?</Link>
         </div>
         <button
           type="submit"
@@ -98,8 +98,8 @@ const Signin = ({ onClose }) => {
         </button>
       </form>
       <div className="flex flex-col text-center">
-          <span>Don't have an account? <Link href='/signup' className="text-orange-500 font-bold">Sign up</Link></span>
-          <span className='text-orange-500 text-lg'>OR</span>
+          <span className='text-slate-600'>Don't have an account? <Link href='/signup' className="text-orange-500 font-semibold px-6">Sign up</Link></span>
+          <span className='text-orange-500 text-md'>or</span>
           <span className="font-thin text-sm">Log In with</span>
       </div>
       <div className='flex gap-7 mx-auto justify-center my-2'>
