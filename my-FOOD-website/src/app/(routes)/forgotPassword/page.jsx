@@ -1,4 +1,4 @@
-"use client"
+-"use client"
 import React, { useState } from 'react'
 import {} from '../../../firebase-config/firebase'
 import {createUserWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"

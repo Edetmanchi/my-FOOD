@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Modal from '@/components/Modal';
 import {auth, googleProvider} from '../../../firebase-config/firebase'
-import {createUserWithEmailAndPassword,signupWithGoogle} from "firebase/auth"
+import {createUserWithEmailAndPassword,signInWithPopup} from "firebase/auth"
 import Link from "next/link"
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
@@ -24,7 +24,7 @@ const Signup = ({ onClose }) => {
     }
     const handleSignupWithGoogle = async ()=>{
         try{
-            await signupWithGoogle(auth, googleProvider)
+            await signInWithPopup(auth, googleProvider)
         }catch(err){
             setError(err.message)
         }
@@ -85,6 +85,7 @@ const Signup = ({ onClose }) => {
         >
           Sign Up
         </button>
+        {error && <p>Invalid user credentials</p>}
       </form>
       <div className="flex flex-col text-center">
           <span>Have an account already? <Link href='/signin' className="text-orange-500 font-bold">Log in</Link></span>
