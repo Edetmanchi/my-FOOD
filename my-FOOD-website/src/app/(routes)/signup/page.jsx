@@ -86,8 +86,10 @@ const Signup = ({ onClose }) => {
         >
           Sign Up
         </button>
+<div className='h-12 w-12'>
 
-        <Spinner />
+        <Spinner size='xl' />
+</div>
 
         {error && <p>Invalid user credentials</p>}
       </form>
