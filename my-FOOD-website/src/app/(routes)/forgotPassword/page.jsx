@@ -1,17 +1,24 @@
 'use client'
 import { useState } from 'react';
 import Modal from '@/components/Modal';
-import {auth, googleProvider} from '../../../firebase-config/firebase'
-import {signInWithEmailAndPassword, signInWithPopup} from "firebase/auth"
+import {sendEmailVerification} from 'firebase/auth'
+
 
 const ForgotPassword = ({ onClose }) => {
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
-
-    const handlePasswordReset=()=>{
-
+  const handlePasswordReset= async (e)=>{
+    e.preventDefault()
+    try{
+      
+      await sendEmailVerification(auth, email)
+      setMessage('Password reset email sent. please check your inbox')
+    }catch(err){
+      setMessage(err.message)
     }
-    
+  }
+
   return (
     <Modal
       title="Forgot Password"
@@ -35,6 +42,7 @@ const ForgotPassword = ({ onClose }) => {
         >
           Reset
         </button>
+        {message && <p className='text-center text-md font-thin'>{message}</p>}
       </form>
 
     </Modal>

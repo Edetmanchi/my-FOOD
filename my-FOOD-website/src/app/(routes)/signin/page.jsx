@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { React,useState, useRef } from 'react';
 import Modal from '@/components/Modal';
 import {auth, googleProvider} from '../../../firebase-config/firebase'
 import {signInWithEmailAndPassword, signInWithPopup} from "firebase/auth"
@@ -8,27 +8,13 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
 
 
-// popup Dialog
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogContent,
-  AlertDialogOverlay,
-  AlertDialogCloseButton,
-  useDisclosure,
-} from '@chakra-ui/react'
-
 
 const Signin = ({ onClose }) => {
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false)
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = React.useRef()
-
+  
   const signIn = async(e)=>{
     e.preventDefault();
     try{
@@ -104,37 +90,7 @@ const Signin = ({ onClose }) => {
             />
             <label htmlFor="rememberMe" className="text-slate-500 font-thin">Remember Me</label>
           </div>
-          <>
-            <Button onClick={onOpen}>
              <Link href="/forgotPassword" className="text-orange-500 font-thin">Forgot Password?</Link>
-            </Button>
-            <AlertDialog
-              motionPreset='slideInBottom'
-              leastDestructiveRef={cancelRef}
-              onClose={onClose}
-              isOpen={isOpen}
-              isCentered
-            >
-              <AlertDialogOverlay />
-
-                <AlertDialogContent>
-                  <AlertDialogHeader>Discard Changes?</AlertDialogHeader>
-                  <AlertDialogCloseButton />
-                  <AlertDialogBody>
-                    Are you sure you want to discard all of your notes? 44 words will be
-                    deleted.
-                  </AlertDialogBody>
-                  <AlertDialogFooter>
-                    <Button ref={cancelRef} onClick={onClose}>
-                      No
-                    </Button>
-                    <Button colorScheme='red' ml={3}>
-                      Yes
-                    </Button>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-            </AlertDialog>
-          </>
         </div>
         <button
           type="submit"
