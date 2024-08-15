@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
 import Modal from '@/components/Modal';
+import {useRouter} from 'next/navigation'
 import {auth, googleProvider} from '../../../firebase-config/firebase'
 import {createUserWithEmailAndPassword,signInWithPopup} from "firebase/auth"
 import Link from "next/link"
@@ -9,16 +10,19 @@ import { FaApple, FaFacebook } from "react-icons/fa";
 // import { Spinner } from '@chakra-ui/react'
 
 const Signup = ({ onClose }) => {
+    const router = useRouter();
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [cpassword, setCpassword] = useState('')
     const [error, setError] = useState('false')
 
+
     const handleFormSubmit = async (e)=>{
       e.preventDefault();
       try{
           await createUserWithEmailAndPassword(auth, username, email, password);
+          router.push('/dashboard')
       }catch(err){
           setError(err.message)
       }
