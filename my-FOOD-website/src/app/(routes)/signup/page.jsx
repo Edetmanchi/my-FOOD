@@ -3,11 +3,10 @@ import { useState } from 'react';
 import Modal from '@/components/Modal';
 import {useRouter} from 'next/navigation'
 import {auth, googleProvider} from '../../../firebase-config/firebase'
-import {createUserWithEmailAndPassword,signInWithPopup} from "firebase/auth"
+import {createUserWithEmailAndPassword,signInWithPopup, sendEmailVerification} from "firebase/auth"
 import Link from "next/link"
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
-// import { Spinner } from '@chakra-ui/react'
 
 const Signup = ({ onClose }) => {
     const router = useRouter();
@@ -15,19 +14,23 @@ const Signup = ({ onClose }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [cpassword, setCpassword] = useState('')
-    const [error, setError] = useState('false')
+    const [error, setError] = useState('null')
 
 
     const handleFormSubmit = async (e)=>{
       e.preventDefault();
-      try{
-          await createUserWithEmailAndPassword(auth, username, email, password);
-          const user = auth.currentUser;
-          router.push('/dashboard')
-      }catch(err){
-          setError(err.message)
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth,username, email, password);
+        await sendEmailVerification(userCredential.user);
+        setMessage('A verification email has been sent to your email address. Please verify before signing in.');
+        setError(null);
+        router.push('/signin');
+      } catch (err) {
+        setError(err.message);
+        setMessage('');
       }
-    }
+    };
+
     const handleSignupWithGoogle = async ()=>{
         try{
             await signInWithPopup(auth, googleProvider)
@@ -36,6 +39,7 @@ const Signup = ({ onClose }) => {
             setError(err.message)
         }
     }
+
 
   
 

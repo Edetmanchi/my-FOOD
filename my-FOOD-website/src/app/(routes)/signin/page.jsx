@@ -17,20 +17,23 @@ const Signin = ({ onClose }) => {
   
   const signIn = async(e)=>{
     e.preventDefault();
-    try{
-        await signInWithEmailAndPassword(auth,username, email, password)
-        if (rememberMe) {
-          localStorage.setItem('email', email);
-          localStorage.setItem('password', password);
-        } else {
-          localStorage.removeItem('email');
-          localStorage.removeItem('password');
-        }
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-    }catch(err){
-     console.error(err)
+      if (user.emailVerified) {
+        setError(null);
+        router.push('/dashboard');
+      } else {
+        throw new Error('Email not verified. Please check your inbox.');
+      }
+    } catch (err) {
+      setError(err.message);
     }
   }
+
+
+
   const signInWithGoogle = async()=>{
       try{
           await signInWithPopup(auth, googleProvider)
@@ -109,6 +112,7 @@ const Signin = ({ onClose }) => {
           <FaApple size={23} className="transition transform hover:scale-125 duration-300"/>
           <FaFacebook size={23} className="transition transform hover:scale-125 duration-300"/>                  
       </div>
+      {error && <p>{email}</p>}
     </Modal>
   );
 };
