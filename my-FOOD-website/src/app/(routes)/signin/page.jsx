@@ -17,7 +17,7 @@ const Signin = ({ onClose }) => {
   
   const signIn = async(e)=>{
     e.preventDefault();
-    try {
+    try {jk
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
