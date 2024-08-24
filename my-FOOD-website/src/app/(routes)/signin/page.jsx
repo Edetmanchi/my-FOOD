@@ -112,7 +112,7 @@ const Signin = ({ onClose }) => {
           <FaApple size={23} className="transition transform hover:scale-125 duration-300"/>
           <FaFacebook size={23} className="transition transform hover:scale-125 duration-300"/>                  
       </div>
-      {error && <p>{email}</p>}
+      {/* {error && <p>{email}</p>} */}
     </Modal>
   );
 };

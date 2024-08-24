@@ -101,7 +101,7 @@ const Signup = ({ onClose }) => {
             <Spinner size='xl' />
         </div> */}
 
-        {error && <p>Invalid user credentials</p>}
+        {/* {error && <p>Invalid user credentials</p>} */}
       </form>
       <div className="flex flex-col text-center">
           <span>Have an account already? <Link href='/signin' className="text-orange-500 font-bold">Log in</Link></span>
