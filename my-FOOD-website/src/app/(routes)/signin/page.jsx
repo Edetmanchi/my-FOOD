@@ -1,5 +1,6 @@
 'use client'
 import { React,useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import Modal from '@/components/Modal';
 import {auth, googleProvider} from '../../../firebase-config/firebase'
 import {signInWithEmailAndPassword, signInWithPopup} from "firebase/auth"
@@ -8,8 +9,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
 
 
-
 const Signin = ({ onClose }) => {
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ const Signin = ({ onClose }) => {
   
   const signIn = async(e)=>{
     e.preventDefault();
-    try {jk
+    try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
@@ -37,6 +38,7 @@ const Signin = ({ onClose }) => {
   const signInWithGoogle = async()=>{
       try{
           await signInWithPopup(auth, googleProvider)
+          router.push("/dashboard")
       }catch(err){
       console.error(err)
       }
