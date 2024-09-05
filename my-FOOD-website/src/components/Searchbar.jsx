@@ -17,7 +17,7 @@ const SearchBar = ({ onSearch }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="flex items-center max-w-full rounded-full h-16 text-center border border-teal-500 py-2 px-6 bg-slate-50">
+        <div className="flex items-center max-w-full rounded-full h-16 text-center border-4 py-2 px-6 bg-slate-50  focus:ring-2">
           <Search className='text-slate-600'/>
           <input
             type="text"
