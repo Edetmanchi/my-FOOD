@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { restaurants } from '@/app/data/Resturants';
-import Cr from "../components/img/Cr.png"
 export default function AvailableRestaurant({ restaurants = [] }) {
   return (
     <div className="flex flex-wrap justify-center gap-6 p-6">
@@ -11,7 +10,7 @@ export default function AvailableRestaurant({ restaurants = [] }) {
         >
           <div className="relative w-full h-48 overflow-hidden rounded-lg mb-4">
             <Image 
-              src={Cr} 
+              src="/Cr" 
               alt={restaurant.name} 
               layout="fill" 
               objectFit="cover" 
