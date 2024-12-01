@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import SidebarBtn from './SidebarBtn';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -27,7 +26,7 @@ const Sidebar = () => {
       <div className={`w-64 border-slate-50 h-screen text-slate-900 flex flex-col transition-all duration-300 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative z-50`}>
         <div className="px-8 py-4 flex items-center justify-between">
           <Link href='/'> 
-            <Image src="/Cr" alt="logo" width={70} />
+            <Image src="/Cr" alt="logo" width={70} height={20} />
           </Link>
           <button onClick={toggleDarkMode} className="text-gray-300 hover:text-gray-500 focus:outline-none">
             <svg id="darkModeIcon" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

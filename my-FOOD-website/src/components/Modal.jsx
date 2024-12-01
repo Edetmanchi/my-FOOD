@@ -1,5 +1,4 @@
-import Image from "next/image";
-import {Logo} from './img/Logo.png'
+// import Image from "next/image";
 const Modal = ({ title, description, onClose, children }) => {
     return (
       <div
@@ -10,11 +9,7 @@ const Modal = ({ title, description, onClose, children }) => {
           className="relative bg-white w-1/3 p-6 rounded shadow-lg items-center"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* <Image
-           src={Logo}
-           alt=''
-          //  width={40}
-           /> */}
+        
           <button onClick={onClose} className="text-gray-500 absolute top-1 right-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
