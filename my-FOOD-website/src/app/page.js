@@ -1,39 +1,202 @@
+
+
+// "use client"
+// import React, { useState, useEffect, useMemo } from 'react'
+// import useMeasure from 'react-use-measure'
+// import { useTransition, a } from '@react-spring/web'
+// import shuffle from 'lodash.shuffle'
+// import { TypeAnimation } from 'react-type-animation';
+// import { Hachi_Maru_Pop } from "next/font/google";
+
+
+// import useMedia from './useMedia'
+// import data from './data'
+
+// import styles from './styles.module.css'
+// import SearchBar from '@/components/Searchbar'
+
+
+
+// // const hachiMaruPop = Hachi_Maru_Pop({
+// //   weight: "400", 
+// //   subsets: ["latin"],
+// // });
+
+// function AnimationGrid() {
+//   const columns = useMedia(['(min-width: 1500px)', '(min-width: 1000px)', '(min-width: 600px)'], [5, 4, 3], 2)
+//   const [ref, { width }] = useMeasure()
+//   const [items, set] = useState(data)
+//   useEffect(() => {
+//     const t = setInterval(() => set(shuffle), 2000)
+//     return () => clearInterval(t)
+//   }, [])
+//   const [heights, gridItems] = useMemo(() => {
+//     let heights = new Array(columns).fill(0)
+//     let gridItems = items.map((child, i) => {
+//       const column = heights.indexOf(Math.min(...heights))
+//       const x = (width / columns) * column 
+//       const y = (heights[column] += child.height / 2) - child.height / 2 
+//       return { ...child, x, y, width: width / columns, height: child.height / 2 }
+//     })
+//     return [heights, gridItems]
+//   }, [columns, items, width])
+//   const transitions = useTransition(gridItems, {
+//     key: (item) => item.css,
+//     from: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 0 }),
+//     enter: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 1 }),
+//     update: ({ x, y, width, height }) => ({ x, y, width, height }),
+//     leave: { height: 0, opacity: 0 },
+//     config: { mass: 5, tension: 500, friction: 100 },
+//     trail: 25,
+//   })
+//   return (
+//     <div ref={ref} className={styles.list} style={{ height: Math.max(...heights) }}>
+//       {transitions((style, item) => (
+//         <a.div style={style}>
+//           <div style={{ backgroundImage: `url(${item.css}?auto=compress&dpr=2&h=500&w=500)` }} />
+//         </a.div>
+//       ))}
+//       <div className="inset-0 absolute bg-gradient-to-b from-black/70 via-black/90 to-black/30">
+//         {/* Search Bar */}
+//         <div className="flex flex-col items-center justify-center ">
+//           <div className="">
+//             <SearchBar
+//               type="text"
+//               className="w-full px-4 py-2 rounded-lg shadow-lg text-black focus:outline-none"
+//             />
+//           </div>
+//           <TypeAnimation
+//             sequence={[
+//               'We Deliver Your Best Meals',
+//               2000,
+//               'We Deliver to Any Location',
+//               2000,
+//               'We Deliver Fast',
+//               2000,
+//             ]}
+//              speed={70}
+//               repeat={Infinity}
+//               style={{
+//                 fontSize: "3em",
+//                 color: "white",
+//                 fontWeight: "bold",
+//                 margin: "20px 0",
+//                 padding: "10px 5",
+//                 letterSpacing: "0.1em",
+//                 justifyContent: "center",
+//                 alignItems: "center",
+//                 fontFamily: "hachi"
+                
+//               }}
+//               // className={hachiMaruPop.className}
+//           />
+          
+//         </div>
+//       </div>
+//       {/* <section className=" flex flex-col items-center min-h-[400px] pt-[100px] bg-[#dd3f31]">
+//         <h1 className="text-4xl">Nice Curves!</h1>
+//         <p className="text-lg">A website is like a road. The more curves it has, the more interesting it is.</p>
+//         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+//           <svg
+//             className="relative block w-[103%] h-[262px]"
+//             xmlns="http://www.w3.org/2000/svg"
+//             viewBox="0 0 1200 120"
+//             preserveAspectRatio="none"
+//           >
+//             <path
+//               d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+//               fill="hsl(240,3%,6%)"
+//             />
+//           </svg>
+//         </div>
+//       </section> */}
+//       <section className=" flex flex-col items-center min-h-[400px] pb-[100px] bg-white">
+//         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+//           <svg
+//             className="relative block w-[103%] h-[262px]"
+//             xmlns="http://www.w3.org/2000/svg"
+//             viewBox="0 0 1200 120"
+//             preserveAspectRatio="none"
+//           >
+//             <path
+//               d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+//               fill="hsl(240,3%,6%)"
+//             />
+//           </svg>
+//         </div>
+//       </section>
+//     </div>
+//   )
+  
+// }
+// export default function page() {
+//   return (
+//     <>
+//     < AnimationGrid/>
+//     </>
+//   )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client"
 import React, { useState, useEffect, useMemo } from 'react'
 import useMeasure from 'react-use-measure'
 import { useTransition, a } from '@react-spring/web'
 import shuffle from 'lodash.shuffle'
-
+import { TypeAnimation } from 'react-type-animation';
+import { Hachi_Maru_Pop } from "next/font/google";
 import useMedia from './useMedia'
 import data from './data'
 
 import styles from './styles.module.css'
-// import { Mandali } from 'next/font/google'
+import SearchBar from '@/components/Searchbar'
 
-function Masonry() {
-  // Hook1: Tie media queries to the number of columns
+
+
+// const hachiMaruPop = Hachi_Maru_Pop({
+//   weight: "400", 
+//   subsets: ["latin"],
+// });
+
+function AnimationGrid() {
   const columns = useMedia(['(min-width: 1500px)', '(min-width: 1000px)', '(min-width: 600px)'], [5, 4, 3], 2)
-  // Hook2: Measure the width of the container element
   const [ref, { width }] = useMeasure()
-  // Hook3: Hold items
   const [items, set] = useState(data)
-  // Hook4: shuffle data every 2 seconds
   useEffect(() => {
     const t = setInterval(() => set(shuffle), 2000)
     return () => clearInterval(t)
   }, [])
-  // Hook5: Form a grid of stacked items using width & columns we got from hooks 1 & 2
   const [heights, gridItems] = useMemo(() => {
-    let heights = new Array(columns).fill(0) // Each column gets a height starting with zero
+    let heights = new Array(columns).fill(0)
     let gridItems = items.map((child, i) => {
-      const column = heights.indexOf(Math.min(...heights)) // Basic masonry-grid placing, puts tile into the smallest column using Math.min
-      const x = (width / columns) * column // x = container width / number of columns * column index,
-      const y = (heights[column] += child.height / 2) - child.height / 2 // y = it's just the height of the current column
+      const column = heights.indexOf(Math.min(...heights))
+      const x = (width / columns) * column 
+      const y = (heights[column] += child.height / 2) - child.height / 2 
       return { ...child, x, y, width: width / columns, height: child.height / 2 }
     })
     return [heights, gridItems]
   }, [columns, items, width])
-  // Hook6: Turn the static grid values into animated transitions, any addition, removal or change will be animated
   const transitions = useTransition(gridItems, {
     key: (item) => item.css,
     from: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 0 }),
@@ -43,7 +206,6 @@ function Masonry() {
     config: { mass: 5, tension: 500, friction: 100 },
     trail: 25,
   })
-  // Render the grid
   return (
     <div ref={ref} className={styles.list} style={{ height: Math.max(...heights) }}>
       {transitions((style, item) => (
@@ -51,13 +213,84 @@ function Masonry() {
           <div style={{ backgroundImage: `url(${item.css}?auto=compress&dpr=2&h=500&w=500)` }} />
         </a.div>
       ))}
+      <div className="inset-0 absolute bg-gradient-to-b from-black/70 via-black/90 to-black/30">
+        {/* Search Bar */}
+        <div className="flex flex-col items-center justify-center ">
+          <div className="">
+            <SearchBar
+              type="text"
+              className="w-full px-4 py-2 rounded-lg shadow-lg text-black focus:outline-none"
+            />
+          </div>
+          <TypeAnimation
+            sequence={[
+              'We Deliver Your Best Meals',
+              2000,
+              'We Deliver to Any Location',
+              2000,
+              'We Deliver Fast',
+              2000,
+            ]}
+             speed={70}
+              repeat={Infinity}
+              style={{
+                fontSize: "3em",
+                color: "white",
+                fontWeight: "bold",
+                margin: "20px 0",
+                padding: "10px 5",
+                letterSpacing: "0.1em",
+                justifyContent: "center",
+                alignItems: "center",
+                fontFamily: "hachi"
+                
+              }}
+              // className={hachiMaruPop.className}
+          />
+          
+        </div>
+      </div>
+      {/* <section className=" flex flex-col items-center min-h-[400px] pt-[100px] bg-[#dd3f31]">
+        <h1 className="text-4xl">Nice Curves!</h1>
+        <p className="text-lg">A website is like a road. The more curves it has, the more interesting it is.</p>
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+          <svg
+            className="relative block w-[103%] h-[262px]"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              fill="hsl(240,3%,6%)"
+            />
+          </svg>
+        </div>
+      </section> */}
+      <section className=" flex flex-col items-center min-h-[400px] pb-[100px] bg-white">
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+          <svg
+            className="relative block w-[103%] h-[262px]"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              fill="hsl(240,3%,6%)"
+            />
+          </svg>
+        </div>
+      </section>
     </div>
   )
+  
 }
-
 export default function page() {
   return (
-    < Masonry/>
+    <>
+    < AnimationGrid/>
+    </>
   )
 }
 
@@ -78,168 +311,4 @@ export default function page() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import HomePageSwiper from "@/components/HomePageSwiper";
-// import WhyChooseUs from "@/components/WhyChooseUsCard";
-// import SearchBar from "@/components/Searchbar";
-// import CuisineCard from "@/components/CuisineCard";
-// import AutoPlay from "@/components/AutoPlay";
-// import Services from "@/components/Services";
-// import { FaGooglePlay } from "react-icons/fa6";
-// import { FaApple } from "react-icons/fa";
-// import Image from "next/image";
-// export default function Page() {
-//   return (
-//     <>
-//       {/* <div> */}
-//         <HomePageSwiper />
-//         <div className="bg-[#FF7622] pt-10 px-20 h-[80vh] ">
-//           <h1 className="text-[#3E3C39] font-bold text-4xl text-center mb-10">
-//             Why Choose Us?
-//           </h1>
-//           <div className="  flex gap-8 items-center ">
-//             <div className="flex ">
-//               <Image
-//                 src={"/images/female-chef.png"}
-//                 alt={"food-image"}
-//                 height={200}
-//                 width={200}
-//                 className="h-32 w-28 object-contain -mr-20 -mt-10 z-10"
-//               />
-//               <WhyChooseUs
-//                 img={"/images/easy-order-icon.jpg"}
-//                 header={"Easy to order"}
-//                 description={
-//                   "We allow you to choose your order and we deliver quality food"
-//                 }
-//               />
-//             </div>
-
-//             <div className="w-1/3">
-//               {" "}
-//               <WhyChooseUs
-//                 img={"/images/secure-payment-icon.png"}
-//                 header={"Secure payment"}
-//                 description={
-//                   "Easy and smooth payment options for easy customer service"
-//                 }
-//               />
-//             </div>
-//             <div className="flex w-1/3">
-//               <div className="relative">
-//                 <WhyChooseUs
-//                   img={"/images/fast-delivery-icon.png"}
-//                   header={"Fast delivery"}
-//                   description={
-//                     "Your order is just a step away because we deliver fast and on time."
-//                   }
-//                 />
-//                 <Image
-//                   src={"/images/message.png"}
-//                   alt={"message-icon"}
-//                   height={200}
-//                   width={200}
-//                   className="h-16 w-16 object-contain absolute bottom-0 right-0  -mr-4 z-10"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//         {/* end of why choose us */}
-//         <div className="flex justify-between mt-20 mx-16">
-//           <h1 className="text-4xl font-bold">
-//             Diverse <span className="text-[#FF7622]">Cuisine</span> Selection
-//           </h1>
-//           <button className="bg-[#FF7622] text-white px-4 py-2 rounded-md font-bold">
-//             More Details
-//           </button>
-//         </div>
-//         <div className="mt-8">
-//           <AutoPlay />
-//         </div>
-//         <div className="flex justify-center mt-20">
-//           <Image
-//             src={"/images/female-chef.png"}
-//             alt={"cheff"}
-//             height={200}
-//             width={200}
-//             className="object-cover w-16 h-16 -mt-6 "
-//           />
-//           <h1 className="text-4xl font-bold ">How To Order</h1>
-//         </div>
-//         <div className="m-10">
-//           <Image
-//             src={"/images/stages.png"}
-//             alt={"banner"}
-//             height={200}
-//             width={200}
-//             className=" w-full object-cover"
-//           />
-//         </div>
-//         <div className="flex justify-between items-center m-20">
-//           <div className="">
-//             <h1 className="text-4xl font-bold">
-//               <span className="text-[#3A8700] ">Download</span> Our Mobile App
-//             </h1>
-//             <p className="text-sm text-center mt-2">We’re available for both</p>
-//             <div className="flex items-center gap-6 justify-center mt-12">
-//               <button className="bg-black text-white flex gap-2 items-center rounded-md px-2">
-//                 <FaGooglePlay className="w-6 h-6" />
-//                 <div>
-//                   <p className="text-xs text-start">GET IT ON</p>
-//                   <h1 className="font-semibold text-md">Google Play</h1>
-//                 </div>
-//               </button>
-//               <button className="bg-black text-white flex gap-2 items-center rounded-md px-2">
-//                 <FaApple className="w-8 h-8" />
-//                 <div>
-//                   <p className="text-xs text-start">Download on the </p>
-//                   <h1 className="font-semibold text-md text-start">App Store</h1>
-//                 </div>
-//               </button>
-//             </div>
-//           </div>
-//           <Image
-//             src={"/images/phones.png"}
-//             alt={"phone"}
-//             height={200}
-//             width={200}
-//             className="object-cover w-80 h-80"
-//           />
-//         </div>
-
-//         <h1 className="text-center text-4xl font-bold mt-12 text-black">
-//           Our Best Services
-//         </h1>
-//         <div className="flex gap-12 m-10 justify-center ">
-//           <Services img={"/images/image-2.png"} button={"Food"} />
-//           <Services img={"/images/drinks.png"} button={"Drinks"} />
-//           <Services img={"/images/image-3.png"} button={"Drinks"} />
-//         </div>
-//         <Image
-//           src={"/images/banner.png"}
-//           alt={"banner"}
-//           height={200}
-//           width={200}
-//           className=" w-full object-cover  p-20"
-//         />
-//       {/* </div> */}
-//     </>
-//   );
-// }
 

@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import Modal from '@/components/Modal';
 import {auth, googleProvider} from '../../../firebase-config/firebase'
 import {signInWithEmailAndPassword, signInWithPopup} from "firebase/auth"
-import Link from "next/link"
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
 
