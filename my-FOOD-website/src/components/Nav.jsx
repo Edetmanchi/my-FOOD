@@ -143,6 +143,10 @@
 
 
 
+
+
+
+
 "use client";
 import React, { useState, useEffect } from "react";
 import SearchBar from "./Searchbar";
@@ -150,6 +154,7 @@ import Link from "next/link";
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -159,6 +164,7 @@ export default function Nav() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
 
   return (
     <>
@@ -180,9 +186,12 @@ export default function Nav() {
 
           {/* Sign Up/Login Button */}
           <div className="hidden md:flex gap-6">
+            <Link href='/signin'>
             <button className=" rounded-sm bg-gray-500 hover:bg-gray-700 py-3 px-8 text-md font-semibold text-white shadow-inner shadow-white/10 ">
              Log In
             </button>
+            </Link>
+          
             <button className=" rounded-md bg-gray-700 py-3 px-8 text-md font-semibold text-white shadow-inner shadow-white/10 ">
              Sign Up
             </button>
