@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import {useEffect, useState } from "react";
 import '../../../app/globals.css';
 import Image from "next/image";
-// import BackgroundImage from "../../../components/img/Food-bg.jpg"
+// import BackgroundImage from "../../../components/"
 import Sidebar from "@/components/sidebar/Sidebar";
 import { Navbar } from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
@@ -38,8 +38,8 @@ const [navbarBg, setNavbarBg] = useState(false);
               <Sidebar/>
             </div>
             <div className="h-screen flex flex-col w-4/5">
-              <div className=" h-[30rem] backdrop-blur" 
-              style={{ backgroundImage: `url(${BackgroundImage.src})` }} >
+              <div className=" h-[30rem] backdrop-blur" >
+              {/* // style={{ backgroundImage: `url(${BackgroundImage.src})` }} > */}
                 <div className="absolute inset-0 backdrop-blur-sm">
                   <div className="">
                     <Navbar/>

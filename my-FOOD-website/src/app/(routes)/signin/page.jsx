@@ -1,7 +1,8 @@
 'use client'
 import { React,useState, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Modal from '@/components/Modal';
+import Link from 'next/link';
 import {auth, googleProvider} from '../../../firebase-config/firebase'
 import {signInWithEmailAndPassword, signInWithPopup} from "firebase/auth"
 import { FcGoogle } from "react-icons/fc";
