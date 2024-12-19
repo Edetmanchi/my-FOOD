@@ -20,7 +20,7 @@ export default function DashHero() {
         {/* Right Section (Image) */}
         <div className="flex-1 mt-6 md:mt-0">
           <img
-            src="path-to-your-image.jpg"
+            src="./logo"
             alt="Delicious Food"
             className="rounded-full shadow-lg object-cover"
           />

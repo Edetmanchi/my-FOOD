@@ -8,7 +8,7 @@ import { GiSandwich } from "react-icons/gi";
 import { BsFillCake2Fill } from "react-icons/bs";
 import SearchBar from "@/components/Searchbar";
 
-import DashHero from '@/components/sidebar/'
+import DashHero from "@/components/sidebar/DashHero";
 import AvailableRestaurant from "@/components/AvailableResturant";
 
 
@@ -19,6 +19,9 @@ export default function Dashboard() {
     <main className=" mx-3 mt-10 justify-center flex flex-col">         
         <div className="justify-between items-center w-full space-y-20">
           <div className="flex w-full h-80 gap-8">
+            <DashHero
+
+            />
             
           </div>
           {/* menu icons */}
