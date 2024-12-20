@@ -4,7 +4,7 @@ import {useEffect, useState } from "react";
 import '../../../app/globals.css';
 import Image from "next/image";
 // import BackgroundImage from "../../../components/"
-import Sidebar from "@/components/sidebar/Sidebar";
+import Sidebar from "@/components/dashboard/sidebar/Sidebar";
 import { Navbar } from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 

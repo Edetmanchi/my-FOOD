@@ -3,9 +3,9 @@ import React from 'react'
 export default function DashHero() {
   return (
     <>
-      <div className="flex flex-col md:flex-row items-center bg-black text-white p-6 md:p-12">
+      <div className="h-full w-4/6 flex flex-col md:flex-row items-center bg-black text-white px-6 py4 md:p-6 rounded-2xl  ">
         {/* Left Section */}
-        <div className="flex-1 md:mr-6 text-center md:text-left">
+        <div className="md:mr-6 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Welcome People!
           </h1>
@@ -18,11 +18,13 @@ export default function DashHero() {
         </div>
 
         {/* Right Section (Image) */}
-        <div className="flex-1 mt-6 md:mt-0">
+        <div className=" md:mt-0">
           <img
-            src="./logo"
+            src="/dashimg.png"
+            width={300}
+            height={100}
             alt="Delicious Food"
-            className="rounded-full shadow-lg object-cover"
+            className="rounded-full shadow-lg object-fit"
           />
         </div>
       </div>      

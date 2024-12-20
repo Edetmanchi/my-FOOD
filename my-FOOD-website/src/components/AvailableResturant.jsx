@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { restaurants } from '@/app/data/Resturants';
+import { restaurants } from '@/app/data/Resturant_data';
 export default function AvailableRestaurant({ restaurants = [] }) {
   return (
     <div className="flex flex-wrap justify-center gap-6 p-6">
