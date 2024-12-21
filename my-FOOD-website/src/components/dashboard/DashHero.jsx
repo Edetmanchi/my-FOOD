@@ -3,7 +3,7 @@ import React from 'react'
 export default function DashHero() {
   return (
     <>
-      <div className="h-full w-4/6 flex flex-col md:flex-row items-center bg-black text-white px-6 py4 md:p-6 rounded-2xl  ">
+      <div className="h-full flex flex-col md:flex-row items-center bg-black text-white px-6 py4 md:p-6 rounded-2xl  ">
         {/* Left Section */}
         <div className="md:mr-6 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
