@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Running_order = ({ image, title, description, price }) => {
   return (
-    <div className="flex items-center gap-4 p-4 bg-white shadow-md rounded-lg">
+    <div className="flex items-center gap-3 p-4 bg-slate-50 shadow-gray-800 rounded-xl">
       <div className="w-16 h-16 relative">
         <Image src={image} alt={title} layout="fill" className="rounded-md" />
       </div>
