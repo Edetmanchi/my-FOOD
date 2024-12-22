@@ -13,8 +13,6 @@ import DashSide from "@/components/dashboard/aside/DashSide";
 import FoodCategory from "@/components/dashboard/foodcategory/Foodcategory";
 import Popular_dishes_container from "@/components/dashboard/populardishes/Popular_dishes_container";
 
-
-
 export default function Dashboard() {
   return (
     <main className=" mx-2 mt-12 justify-center shadow-slate-400 flex flex-col">         

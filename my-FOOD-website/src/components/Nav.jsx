@@ -125,6 +125,7 @@ import Link from "next/link";
 
 import Signup from '@/app/(routes)/signup/page';
 import Signin from '@/app/(routes)/signin/page';
+import Image from "next/image";
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -170,7 +171,8 @@ export default function Nav() {
         <div className="container mx-auto px-4 flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="ml-2 text-xl font-bold text-white">MyBrand</span>
+            {/* <span className="ml-2 text-xl font-bold text-white">MyBrand</span> */}
+              <Image src='/logo.png' width="100" height='70'/>
           </div>
 
           {isScrolled && (
