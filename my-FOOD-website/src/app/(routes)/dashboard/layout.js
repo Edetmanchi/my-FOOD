@@ -36,7 +36,7 @@ const [navbarBg, setNavbarBg] = useState(false);
             <div className="h-screen flex flex-col w-4/5 bg-gray-100">
               <div className=" inset-0 backdrop-blur-sm">
                 <div className="">
-                  {/* <Navbar/> */}
+                  {/* <Navbar/> */}``
                 </div>
                 <div className="" >
                   {children}
