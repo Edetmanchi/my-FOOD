@@ -14,22 +14,3 @@ const SidebarBtn = ({ icon, text, onClick, isActive }) => {
 };
 
 export default SidebarBtn;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
