@@ -1,41 +1,3 @@
-export const OrderData = [
-  {
-    id: 1,
-    image: "/dashimg.png",
-    title: "Nasi Goreng",
-    description: "Main Course",
-    price: 51,
-  },
-  {
-    id: 2,
-    image: "/dashimg.png",
-    title: "Udang Semur",
-    description: "Soup",
-    price: 56,
-  },
-  {
-    id: 3,
-    image: "/dashimg.png",
-    title: "Meat Ball May",
-    description: "Appetizer",
-    price: 66,
-  },
-  {
-    id: 3,
-    image: "/dashimg.png",
-    title: "Meat Ball May",
-    description: "Appetizer",
-    price: 77,
-  },
-  {
-    id: 3,
-    image: "/dashimg.png",
-    title: "Meat Ball May",
-    description: "Appetizer",
-    price: 16,
-  },
-];
-
 export const Category = [
   {
     id: 1,
@@ -74,48 +36,47 @@ export const Category = [
   }  
 ];
 
-
 export const PopularDishes =[
   {
     id: 1,
-    image: "/Food-bg.jpg",
-    title: "Noodles",
-    description: "Chinese Special",
+    image: "/burger/burger-1.jpg",
+    title: "Burgers",
+    description: "Burgers",
     price: "1500"
   },
   {
     id: 2,
-    image: "/Food-bg.jpg",
-    title: "Jollof Rice",
-    description: "Smoked fired Jollof",
+    image: "/cake/cake-1.jpg",
+    title: "Cakes",
+    description: "Buttered Cake",
     price: "4000"
   },
   {
     id: 3,
-    image: "/Food-bg.jpg",
-    title: "Banga Soup",
+    image: "/fries/french-fries-1.jpg",
+    title: "Fries",
     description: "Freshly cooked",
     price: "2000"
   },
   {
     id: 4,
-    image: "/Food-bg.jpg",
-    title: "Sallad",
+    image: "/italian/italian-1.jpg",
+    title: "Italian",
     description: "made with fresh Handpicked veggies",
     price: "3400"
   },
   {
     id: 5,
-    image: "/Food-bg.jpg",
-    title: "Fried Rice",
-    description: "Nigerian Fried Rice",
+    image: "/rice/rice-1.jpg",
+    title: "Rice",
+    description: "Fresh Asun",
     price: "3000"
   },
   {
-    id: 6,
-    image: "/Food-bg.jpg",
-    title: "Buttered Bread",
-    description: "Freshly baked ",
+    id: 5,
+    image: "/salad/fruit-salad.jpg",
+    title: "Salad",
+    description: "Fruit Salad ",
     price: "1900"
   }
 ]

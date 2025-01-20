@@ -168,7 +168,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { Hachi_Maru_Pop } from "next/font/google";
 import useMedia from './useMedia'
 import data from './data'
-import {Dashboard} from "./(routes)/dashboard/page"
+import {Dashboard} from "./(pages)/dashboard/page"
 
 import styles from './styles.module.css'
 import SearchBar from '@/components/Searchbar'

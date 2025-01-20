@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Food_category_card = ({image, title }) => {
+const FoodCategoryContainer = ({image, title }) => {
   return (
     <div className="flex-shrink-0 w-44 h-24 mx-1 relative rounded overflow-x-hidden shadow-md">
       <Image src={image} alt={title} layout="fill" objectFit="fill" />

@@ -2,7 +2,7 @@
 "use client";
 import { useState } from "react";
 import { Category } from "@/app/data/Resturant_data";
-import Food_category_card from "./Food_category_card";
+import Food_category_card from "./FoodCategoryContainer";
 import Tittle from "@/components/Tittle";
 
 const FoodCategory = () => {

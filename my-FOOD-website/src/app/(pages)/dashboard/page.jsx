@@ -11,7 +11,7 @@ import SearchBar from "@/components/Searchbar";
 import DashHero from "@/components/dashboard/DashHero";
 import DashSide from "@/components/dashboard/aside/DashSide";
 import FoodCategory from "@/components/dashboard/foodcategory/Foodcategory";
-import Popular_dishes_container from "@/components/dashboard/populardishes/Popular_dishes_container";
+import Popular_dishes_container from "@/components/dashboard/populardishes/PopularDishContainer";
 
 export default function Dashboard() {
   return (

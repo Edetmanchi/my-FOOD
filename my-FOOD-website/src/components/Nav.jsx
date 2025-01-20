@@ -123,8 +123,8 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "./Searchbar";
 import Link from "next/link";
 
-import Signup from '@/app/(routes)/signup/page';
-import Signin from '@/app/(routes)/signin/page';
+import Signup from '@/app/(pages)/signup/page';
+import Signin from '@/app/(pages)/signin/page';
 import Image from "next/image";
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
