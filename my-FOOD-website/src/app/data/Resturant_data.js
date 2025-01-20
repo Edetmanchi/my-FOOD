@@ -39,49 +39,39 @@ export const OrderData = [
 export const Category = [
   {
     id: 1,
-    image: "/Food-bg.jpg",
-    title: "Indonesian Food",
+    image: "/burger/burger-1.jpg",
+    title: "Burgers",
   },
   {
     id: 2,
-    image: "/Food-bg.jpg",
-    title: "Japanese Food",
+    image: "/cake/cake-1.jpg",
+    title: "Cakes",
   },
   {
     id: 3,
-    image: "/Food-bg.jpg",
-    title: "Korean Food",
+    image: "/fries/french-fries-1.jpg",
+    title: "Fries",
   },
   {
     id: 4,
-    image: "/Food-bg.jpg",
-    title: "Italian Food",
+    image: "/italian/italian-1.jpg",
+    title: "Italian",
   },
   {
     id: 5,
-    image: "/Food-bg.jpg",
-    title: "Mexican Food",
+    image: "/pizza/pizza-1.jpg",
+    title: "Pizza",
   },
   {
     id: 5,
-    image: "/Food-bg.jpg",
-    title: "Mexican Food",
+    image: "/rice/rice-1.jpg",
+    title: "Rice",
   },
   {
     id: 5,
-    image: "/Food-bg.jpg",
-    title: "Mexican Food",
-  },
-  {
-    id: 5,
-    image: "/Food-bg.jpg",
-    title: "Mexican Food",
-  },
-  {
-    id: 5,
-    image: "/dashimg.png",
-    title: "Mexican Food",
-  },
+    image: "/salad/fruit-salad.jpg",
+    title: "Salad",
+  }  
 ];
 
 
