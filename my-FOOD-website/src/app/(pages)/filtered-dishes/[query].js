@@ -59,42 +59,47 @@
 
 
 
-
+import { useRouter } from "next/navigation";
 import { Dishes } from "@/app/data/Resturant_data";
-import Image from "next/image";
-import { useRouter } from "next/router";
+import PopularDishes from "@/components/dashboard/populardishes/PopularDishes";
+import Title from "@/components/Title";
 
 const FilteredDishes = () => {
   const router = useRouter();
   const { query } = router.query;
 
+  if (!query) {
+    return <div>Loading...</div>;
+  }
+
+  // Filter dishes based on title or description
   const filteredDishes = Dishes.filter(
     (dish) =>
       dish.title.toLowerCase().includes(query.toLowerCase()) ||
       dish.description.toLowerCase().includes(query.toLowerCase())
   );
 
-  const handleDishClick = (id) => {
-    router.push(`/food-details/${id}`);
-  };
+  if (filteredDishes.length === 0) {
+    return (
+      <div className="p-6">
+        <Title title={`No dishes found for "${query}"`} />
+        <p>Try searching for something else!</p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Dishes Related to "{query}"</h1>
+      <Title title={`Dishes Related to "${query}"`} />
       <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
         {filteredDishes.map((dish) => (
-          <div
+          <PopularDishes
             key={dish.id}
-            className="shadow-md p-4 rounded cursor-pointer"
-            onClick={() => handleDishClick(dish.id)}
-          >
-            <div className="h-40 relative">
-              <Image src={dish.image} alt={dish.title} layout="fill" className="rounded-lg" />
-            </div>
-            <h3 className="mt-2 font-semibold">{dish.title}</h3>
-            <p className="text-gray-500">{dish.description}</p>
-            <span className="font-bold">N {dish.price}</span>
-          </div>
+            image={dish.image}
+            title={dish.title}
+            description={dish.description}
+            price={dish.price}
+          />
         ))}
       </div>
     </div>
@@ -102,4 +107,3 @@ const FilteredDishes = () => {
 };
 
 export default FilteredDishes;
-

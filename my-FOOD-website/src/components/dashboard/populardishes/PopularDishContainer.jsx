@@ -1,7 +1,7 @@
 
 import { Dishes } from "@/app/data/Resturant_data";
 import PopularDishes from "./PopularDishes";
-import Tittle from "@/components/Tittle";
+import Tittle from "@/components/Title";
 
 const PopularDishContainer = () => {
   const visibleItems = Dishes.slice(0, 6);

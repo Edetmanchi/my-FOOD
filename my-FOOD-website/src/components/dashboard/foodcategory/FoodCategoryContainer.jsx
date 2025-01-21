@@ -22,7 +22,7 @@ import Image from "next/image";
 
 
 
-const FoodCategory = ({ category }) => {
+const FoodCategory = ({ image, title }) => {
   const router = useRouter();
 
   const handleCategoryClick = () => {
@@ -34,9 +34,9 @@ const FoodCategory = ({ category }) => {
       onClick={handleCategoryClick}
       className="flex-shrink-0 w-44 h-24 mx-1 relative rounded overflow-x-hidden shadow-md cursor-pointer"
     >
-      <Image src={category.image} alt={category.title} layout="fill" objectFit="cover" />
+      <Image src={image} alt={title} layout="fill" objectFit="cover" />
       <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 text-white text-sm p-2">
-        {category.title}
+        {title}
       </div>
     </div>
   );

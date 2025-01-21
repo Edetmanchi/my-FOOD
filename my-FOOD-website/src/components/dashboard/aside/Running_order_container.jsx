@@ -1,11 +1,11 @@
 
-import { OrderData } from "@/app/data/Resturant_data";
+import { Dishes} from "@/app/data/Resturant_data";
 import Running_order from "./Running_order";
-import Tittle from "@/components/Tittle";
+import Tittle from "@/components/Title";
 
 
 const Running_order_container= () => {
-  const visibleItems = OrderData.slice(0, 3);
+  const visibleItems = Dishes.slice(0, 3);
 
   return (
     <div className=" bg-slate-200 rounded-3xl items-center px-3 py-4">

@@ -57,11 +57,11 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-const PopularDishes = ({ dish }) => {
+const PopularDishes = ({ image, description, title, price }) => {
   const router = useRouter();
 
-  const handleDishClick = () => {
-    router.push(`/filtered-dishes/${dish.title}`);
+  const handleDishClick = (categories) => {
+    router.push(`/filtered-dishes/${categories.title.lowerCase()}`);
   };
 
   return (
@@ -70,14 +70,14 @@ const PopularDishes = ({ dish }) => {
       className="flex-col justify-between gap-4 px-2 py-3 shadow-md rounded-xl cursor-pointer"
     >
       <div className="h-40 relative">
-        <Image src={dish.image} alt={dish.title} layout="fill" className="rounded-lg" />
+        <Image src={image} alt={title} layout="fill" className="rounded-lg" />
       </div>
       <div className="flex items-center justify-between mt-2">
         <div>
-          <h3 className="font-semibold">{dish.title}</h3>
-          <p className="text-gray-500 text-sm">{dish.description}</p>
+          <h3 className="font-semibold">{title}</h3>
+          <p className="text-gray-500 text-sm">{description}</p>
         </div>
-        <span className="text-md items-center font-bold">N {dish.price}</span>
+        <span className="text-md items-center font-bold">N {price}</span>
       </div>
     </div>
   );

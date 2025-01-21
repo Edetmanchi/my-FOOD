@@ -1,17 +1,12 @@
 import { ScrollText } from "lucide-react";
-import { Heart } from "lucide-react";
-import { PiBowlFood,PiFishLight } from "react-icons/pi";
-import { FaPizzaSlice } from "react-icons/fa";
-import { GiRoastChicken,GiHamburger} from "react-icons/gi";
-import { TbSoupFilled } from "react-icons/tb";
-import { GiSandwich } from "react-icons/gi";
-import { BsFillCake2Fill } from "react-icons/bs";
+import Nav from "@/components/Nav";
 import SearchBar from "@/components/Searchbar";
 
 import DashHero from "@/components/dashboard/DashHero";
 import DashSide from "@/components/dashboard/aside/DashSide";
 import FoodCategory from "@/components/dashboard/foodcategory/Foodcategory";
 import Popular_dishes_container from "@/components/dashboard/populardishes/PopularDishContainer";
+import Test from "../test/page";
 
 export default function Dashboard() {
   return (

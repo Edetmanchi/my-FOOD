@@ -3,9 +3,8 @@ import { Inter } from "next/font/google";
 import {useEffect, useState } from "react";
 import '../../../app/globals.css';
 import Image from "next/image";
-// import BackgroundImage from "../../../components/"
 import Sidebar from "@/components/dashboard/sidebar/Sidebar";
-// import { Navbar } from "@/components/Navbar";
+import Test from "../test/page";
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -36,7 +35,7 @@ const [navbarBg, setNavbarBg] = useState(false);
             <div className="h-screen flex flex-col w-4/5 bg-gray-100">
               <div className=" inset-0 backdrop-blur-sm">
                 <div className="">
-                  {/* <Navbar/> */}``
+                  <Test/>
                 </div>
                 <div className="" >
                   {children}
