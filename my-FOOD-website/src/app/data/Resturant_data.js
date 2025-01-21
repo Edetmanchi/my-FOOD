@@ -36,7 +36,7 @@ export const Category = [
   }  
 ];
 
-export const PopularDishes =[
+export const Dishes =[
   {
     id: 1,
     image: "/burger/burger-1.jpg",

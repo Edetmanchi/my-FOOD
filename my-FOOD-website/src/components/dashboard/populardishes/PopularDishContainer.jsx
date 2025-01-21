@@ -1,17 +1,17 @@
 
-import { PopularDishes } from "@/app/data/Resturant_data";
-import PopularDishes from "./Popular_dishes";
+import { Dishes } from "@/app/data/Resturant_data";
+import PopularDishes from "./PopularDishes";
 import Tittle from "@/components/Tittle";
 
 const PopularDishContainer = () => {
-  const visibleItems = PopularDishes.slice(0, 6);
+  const visibleItems = Dishes.slice(0, 6);
 
   return (
     <div className="px-4 py-4">
       <Tittle tittle="Popular Dishes" />
       <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
         {visibleItems.map((item) => (
-          <Popular_dishes
+          <PopularDishes
             key={item.id}
             image={item.image}
             title={item.title}
@@ -24,4 +24,4 @@ const PopularDishContainer = () => {
   );
 };
 
-export default Popular_dishes_container;
+export default PopularDishContainer;
