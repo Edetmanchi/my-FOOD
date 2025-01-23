@@ -23,7 +23,7 @@ const Sidebar = () => {
 
   return (
     <div className={`flex h-screen overflow-hidden justify-center items-center fixed ${darkMode ? 'dark' : ''}`}>
-      <div className={`w-64 border-slate-200 bg-gray-200 h-screen flex flex-col transition-all duration-300 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative z-50`}>
+      <div className={`w-64 border-slate-200 bg-[#FFFFFFAF] h-screen flex flex-col transition-all duration-300 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative z-50`}>
         <div className="px-8 py-4 flex items-center justify-between">
           <Link href='/dashboard'> 
             <Image src="/logo.png" alt="logo" width={70} height={20} />
@@ -46,7 +46,7 @@ const Sidebar = () => {
           ))}
         </nav>
         <div className="px-8 py-4 mt-auto flex items-center">
-          <img src="https://via.placeholder.com/32" className="w-8 h-8 rounded-full" alt="User" />
+          <img src="https://github.com/shadcn.png" className="w-8 h-8 rounded-full" alt="User" />
           <span className="ml-4">Tom Cook</span>
         </div>
       </div>

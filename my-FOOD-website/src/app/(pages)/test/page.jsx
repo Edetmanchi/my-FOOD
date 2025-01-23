@@ -1,40 +1,22 @@
 "use client"
 
-
-
-import { Copy } from "lucide-react"
- 
-import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-
-
-
 import SearchBar from "@/components/Searchbar";
  import { ShoppingCart } from "lucide-react";
  import Title from "@/components/Title";
- import {AlertDialog} from "@radix-ui/react-dialog"
+import ProfileDropdown from "@/components/ProfileDropdown"
 
-import { useState , useEffect, useRef} from "react";
+import React,{ useState , useEffect, useRef} from "react";
  
 
  export default function Test() {
    return (
-    <div className=" flex flex-row drop-shadow-md bg-gray-200 h-16 py-3x px-5 mt-3 items-center">
-        <DeliveryCard/>
-        <div className="p-1 drop-shadow-lg shadow-md rounded-md bg-slate-300">
-             <ShoppingCart size={34} />
+    <div className=" flex flex-row drop-shadow-xl bg-gray-100 hover:bg-gray-200 h-[4.3rem] py-3x px-5 mt-3 items-center">
+        <AddressCard/> 
+        <div className="gap-3 flex">
+          <ShoppingCart className="p-3 shadow-lg rounded-md drop-shadow-lg bg-gray-300" size={45}/>
+          <ProfileDropdown/>
         </div>
+
     
     </div>
    )
@@ -44,11 +26,25 @@ import { useState , useEffect, useRef} from "react";
 
 
 
-
-
- const DeliveryCard = ({ address, fullAddress }) => {
+ const AddressCard = () => {
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [address, setAddress] = useState("Enter Delivery Address");
     const [isOpen, setIsOpen] = useState(false);
     const cardRef = useRef(null);
+
+
+    const handleEdit = () => {
+      setIsDialogOpen(true);
+    };
+  
+    const handleSave = (newAddress) => {
+      setAddress(newAddress);
+      setIsDialogOpen(false);
+    };
+  
+    const handleClose = () => {
+      setIsDialogOpen(false);
+    };
   
     const toggleAccordion = () => {
       setIsOpen(!isOpen);
@@ -60,10 +56,7 @@ import { useState , useEffect, useRef} from "react";
       }
     };
   
-    const handleCancel = () => {
-      setIsOpen(false);
-      alert('Cancel clicked');
-    };
+  
   
     useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside);
@@ -75,80 +68,94 @@ import { useState , useEffect, useRef} from "react";
     return (
       <div className=" mx-auto" ref={cardRef}>
         <div
-          className="bg-transparent bg-opacity-80 shadow-lg rounded-lg p-4   cursor-pointer hover:shadow-xl transition-all"
+          className="relative bg-gray-100 bg-opacity-80 shadow-lg rounded-lg  px-4 w-56 h-14  cursor-pointer hover:shadow-xl transition-all"
           onClick={toggleAccordion}
         >
-          <h2 className="text-lg font-bold text-gray-800">Delivered to</h2>
+          <h2 className="text-md font-semibold text-gray-800">Delivered to:</h2>
           <Title title={address}/>
   
           {isOpen && (
-            <div className="items-start justify-between gap-10  mt-40 h-35">
+            <div className="absolute top-1 w-56  px-3 py-3 items-start justify-evenly drop-shadow-lg rounded-md gap-10 bg-gray-200">
                 <h2 className="text-lg font-bold text-gray-800">Delivered to</h2>
                 <Title title={address}/>
-                <div className="flex justify-end space-x-4">
-                    <button  className="px-10 py-2 text-xl font-medium text-slate-800 bg-gray-50 rounded-lg hover:bg-gray-100"
-                    onClick={handleCancel}>
+                <div className="flex space-x-4">
+                    <button  className="px-4 py-1 w-24 text-sm font-medium text-slate-800 border-slate-500 rounded-lg hover:bg-gray-200"
+                    onClick={handleClose}>
                     Cancel
                     </button>
-                    <button className="px-10 py-2 text-xl font-medium opacity-80 text-white bg-slate-900 rounded-lg hover:bg-slate-950"
-                    onClick={() => alert('Edit clicked')}
+                    <button className="px-4 py-1 w-24 text-sm font-medium text-white bg-slate-800 rounded-lg hover:bg-slate-900"
+                    onClick={handleEdit}
                     >
-                    <DialogCloseButton/>
+                      Edit
                     </button>
               </div>
             </div>
           )}
         </div>
+
+        <AlertDialog
+        isOpen={isDialogOpen}
+        onClose={handleClose}
+        onSave={handleSave}
+      />
       </div>
     );
   };
 
 
+  const AlertDialog = ({ isOpen, onClose, onSave }) => {
+    const [inputAddress, setInputAddress] = useState("");
+    const dialogRef = useRef(null);
 
+    const handleClickOutside = (event) => {
+      if (dialogRef.current && !dialogRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
 
+    React.useEffect(() => {
+      if (isOpen) {
+        document.addEventListener("mousedown", handleClickOutside);
+      } else {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [isOpen]);
 
+    if (!isOpen) return null;
 
-
-
-
-  export function DialogCloseButton() {
     return (
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline">Share</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Share link</DialogTitle>
-            <DialogDescription>
-              Anyone who has this link will be able to view this.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex items-center space-x-2">
-            <div className="grid flex-1 gap-2">
-              <Label htmlFor="link" className="sr-only">
-                Link
-              </Label>
-              <Input
-                id="link"
-                defaultValue="https://ui.shadcn.com/docs/installation"
-                readOnly
-              />
-            </div>
-            <Button type="submit" size="sm" className="px-3">
-              <span className="sr-only">Copy</span>
-              <Copy />
-            </Button>
+      <div className=" inset-0 flex items-center justify-center bg-black bg-opacity-10 z-50">
+        <div
+          ref={dialogRef}
+          className="absolute mt-14 bg-white rounded-lg shadow-lg px-8  w-full max-w-sm"
+        >
+          <h2 className="text-lg font-bold text-gray-800">Delivered to:</h2>
+          <p className="text-sm text-gray-600 mt-2">Please enter an address we can deliver to.</p>
+          <input
+            type="text"
+            placeholder="Enter address"
+            value={inputAddress}
+            onChange={(e) => setInputAddress(e.target.value)}
+            className="w-full mt-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-300"
+          />
+          <div className="flex justify-end space-x-4 my-4">
+            <button
+              className="px-3 py-2 w-24 text-sm font-medium text-slate-600 border rounded-lg hover:bg-gray-300"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+            <button
+              className="px-3 w-24 py-2 text-sm font-medium text-white bg-slate-700 rounded-lg hover:bg-slate-800"
+              onClick={() => onSave(inputAddress)}
+            >
+              Save
+            </button>
           </div>
-          <DialogFooter className="sm:justify-start">
-            <DialogClose asChild>
-              <Button type="button" variant="secondary">
-                Close
-              </Button>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    )
-  }
-  
+        </div>
+      </div>
+    );
+  };
